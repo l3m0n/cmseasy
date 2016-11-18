@@ -1,0 +1,278 @@
+/*头部*/
+.navbar-default{
+	border-color: rgb(32,101,196);
+	border-color: rgba(32,101,196,0.6);
+	background-color: #244588;
+	-moz-box-shadow:0px 0px 15px #333;
+	-webkit-box-shadow:0px 0px 15px #333;
+	box-shadow:0px 0px 15px #333;
+}
+/* 页底背景颜色 */
+.foot{
+	background-color: #244588;
+}
+
+
+
+/* ---------------导航--------------- */
+
+/* 导航 */
+.navbar-collapse .navbar-nav .oen.active>a, .navbar-collapse .navbar-nav .oen>a:hover {
+  color:white;
+  background: #2065C4;
+}
+/* 导航子栏目列表背景 */
+.dropdown-menu {
+	background-color: #2065C4;
+}
+/* 导航子栏目列表a:hover */
+.dropdown-menu>li>a:hover{
+	background-color: #24488A;
+}
+
+
+/* ------------------------------ */
+
+/* 搜索框背景 */
+.reveal-modal-bg {
+	background-color: rgba(0, 0, 0, 0.8) ;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#e5000000,endColorstr=#e5000000);
+}		
+.reveal-modal{
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,.4); 
+	-moz-box-shadow: 0 0 10px rgba(0,0,0,.4); 
+	-box-shadow: 0 0 10px rgba(0,0,0,.4); 
+	background-color: rgba(33,64,131,0.9); 
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#e5214083,endColorstr=#e5214083);    /*IE8支持*/
+}
+/* 搜索输入框 */
+.top_text {
+	border-color: #A5C7FE;
+}
+/* 搜索按钮 */
+.top_btn{
+	background-color: #2065C4;
+}
+.top_btn:hover{
+	background: #2065C4;
+}
+
+/* banner当前按钮 */
+.fullSlide .hd ul .on{ background: #2065C4;}
+
+
+/* --------------- 首页第二行 --------------- */
+/* 首页第二行标题 */
+.t_2{
+	background: url(../images/base/color1/t_2.gif) repeat-x top center;
+}
+/* 首页第二行背景 */
+.bg_1{
+	background-color: #244588;
+}
+/* 首页第二行tab_a */
+.url_1 a{
+	background-color: #2065C4;
+}
+.url_1 a:hover {
+	background-color:#0a4da6;
+}
+/* 首页第二行li */
+.tabnav li {
+	background-color: #2065C4;
+	border-color: #2065C4;
+}
+/* 首页第二行li 所属栏目 */
+.tabnav li strong{
+	color:#B6D3FB;
+}
+/*首页第二行li 标题*/
+.tabnav li a {
+	color: #B6D3FB;
+}
+/* 首页第二行li 说明颜色 */
+.tabnav li p{
+	color:#B6D3FB;
+}
+/* 首页第二行li 时间颜色 */
+.tabnav li span{
+	color: #B6D3FB;
+}
+/* 首页第二行当前li */
+.tabnav li.s{
+	border: none;
+	background: #FFF url(../images/base/color1/tabnav.gif) no-repeat left center ;
+}
+/* 首页第二行当前li 所属栏目*/
+.tabnav li.s strong{
+	background-color: #f06309;
+	color: #FFF;
+}
+/* 首页第二行当前li 标题 */
+.tabnav li.s a{
+	color: #666666;
+}
+/* 首页第二行当前li 时间 */
+.tabnav li.s span{
+	color: #666666;
+}
+/* 首页第二行当前li 说明 */
+.tabnav li.s p{
+	color: #666666;
+}
+
+/* 首页第二行下 标题 */
+.list_1 li a{
+	color:#CCC;
+}
+/* 首页第二行下 标题hover */
+.list_1 li a:hover{
+	color:#FFF;
+}
+/* 首页第二行下 时间 */
+.list_1 li span{
+	color:#AAA;
+}
+
+
+
+
+/* --------------- 内页导航 --------------- */
+.sub_menu{
+	background-color:#2065C4;
+}
+
+
+/* --------------- 分页 --------------- */
+.pages {
+  color:#888;
+}
+.pages strong,.pages span {
+  background-color: #2065C4;
+}
+.content .pages a,.pages a {
+  border-color: #2065C4;
+  color:#2065C4;
+}
+#page strong {
+	background-color: #2065C4;
+}
+
+
+
+/* --------------- 按钮 --------------- */
+/* 评论按钮 */
+input.btn,.comm input.btn{
+	background: #2065C4;
+}
+.btn,.btn_a {
+	background: #2065C4;
+}
+.btn:hover,.btn_a:hover{
+	background: #FF4A00;
+}
+/* 投票按钮 */
+.guestbook_btn {
+	-webkit-box-shadow: 3px 3px 4px #DFDFDF;
+	-moz-box-shadow: 3px 3px 4px #DFDFDF;
+	box-shadow: 3px 3px 4px #DFDFDF;
+	background-color: #2065C4;	
+}
+.guestbook_btn:hover{
+	background-color: #FF4A00;
+}
+/* 应聘详情 */
+a.table_more{
+	background-color: #236298;
+}
+/* 应聘按钮 */
+.table_job_more a {
+	color: #FFF;
+	background-color: #2065C4;
+}
+.table_job_more a:hover{
+	background-color: #FF4A00;
+}
+
+/* 页底输入框 */
+.s_text {background: #789;}
+
+
+/* --------------- 联系我们图标 --------------- */
+.ico_tel dt{
+	background: url(../images/base/color1/ico_tel.gif) no-repeat left top; 
+}
+.ico_qq dt{
+	background: url(../images/base/color1/ico_qq.gif) no-repeat left top;
+}
+.ico_weixin dt{
+	background: url(../images/base/color1/ico_add.gif) no-repeat left top;
+}
+.ico_add dt{
+	background: url(../images/base/color1/ico_add.gif) no-repeat left top;
+}
+
+
+/* 手机菜单圆形按钮颜色 */
+.plug-menu {
+background: rgb(32,101,196) ;
+
+}
+
+/* 手机菜单弹出按钮颜色 */
+.top_menu>li {
+background-color: rgb(32,101,196);
+}
+
+/* 手机菜单平铺背景颜色 */
+.foot_mp {
+background-color: rgb(32,101,196);
+}
+
+/* 手机顶部背景颜色 */
+.header {
+background-color:rgb(32,101,196);
+}
+
+/* 手机顶部菜单按钮颜色 */
+.dl-menuwrapper button {
+background: rgb(32,101,196);
+}
+/* 手机顶部菜单按钮颜色 */
+.dl-menuwrapper button:hover ,
+.dl-menuwrapper button.dl-active {
+	background-color: rgb(32,101,196);
+}
+/* 手机顶部菜单列表颜色 */
+.dl-menuwrapper ul {
+	background:rgb(32,101,196);
+}
+
+/* 手机顶部菜单列表分隔 */
+.dl-menuwrapper li a {
+background: url(./images/base/color6/menuwrapper.png) repeat-x left top;
+}
+
+/* 手机底部联系我们背景色 */
+.contact {
+background:rgb(32,101,196);
+}
+.pages strong,.pages span {
+  background:rgb(32,101,196);
+}
+.content .pages a,.pages a {
+border:1px solid rgb(32,101,196);
+color:rgb(32,101,196);
+}
+a.register_btn,.register_btn,.comm input.register_btn {
+background:rgb(32,101,196);border:1px solid rgb(32,101,196);
+}
+	.scrollBox .hd .on{ background:rgb(32,101,196);  }
+
+	nav #position li.on {  
+    background:rgb(32,101,196);
+}  
+
+.btn {
+ background:rgb(32,101,196);
+}

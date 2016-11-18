@@ -1,0 +1,27 @@
+
+<div class="col-sm-6 tabbox" id="tabbox">
+{loop archive($_catid,$_typeid,$_spid,$_area,$_length,$_ordertype,$_limit,$_image,$_attr1,$_son,$_wheretype,$_tpl,$_intro_len,$_istop) $k  $archive}
+<div {if $k==0}class="dis"{/if} onclick="('tab',{=$i+1})">
+<a style="color:{$arc[color]};" href="{$archive[url]}"><img src="{$archive[thumb]}" width="485" height="290"></a>
+</div>
+{/loop}
+</div>
+<!--/tabbox-->
+
+
+
+<ul class="col-sm-6 tabnav">
+{loop archive($_catid,$_typeid,$_spid,$_area,$_length,$_ordertype,$_limit,$_image,$_attr1,$_son,$_wheretype,$_tpl,$_intro_len,$_istop) $i $archive}
+<li {if $i==0}class="s"{/if} onMouseOver="tab_m(this,'tabbox')" onclick="('tab',{=$k+1})">
+
+<strong>{$archive[catname]}</strong>
+
+<div>
+	<h5><span class="hidden-sm">{=sdate($archive[adddate],'Y-m')}</span><a style="color:{$arc[color]};" href="{$archive[url]}" class="hover" title="{$archive[stitle]}">{$archive[title]}</a></h5>	
+	<p>{$archive[intro]}</p>
+</div>
+
+</li>
+{/loop}
+</ul>
+<!-- tabnav -->

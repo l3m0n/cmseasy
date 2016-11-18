@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta content="telephone=no" name="format-detection">
+<meta http-equiv="x-rim-auto-match" content="none">
+<title>{lang(onlinepayment)}</title>
+<meta name="keywords" content="{getKeywords($archive,$category,$catid,$type)}" />
+<meta name="description" content="{getDescription($archive,$category,$catid,$type)}" />
+<meta name="author" content="CmsEasy Team" />
+<link rel="icon" href="{$base_url}/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="{$skin_path}/css/orders_w.css" />
+<meta name="author" content="CmsEasy Team" />
+<link rel="icon" href="{$base_url}/favicon.ico" type="image/x-icon" />
+
+<script type="text/javascript" src="{$skin_path}/js/jquery-1.8.3.min.js"></script>
+<script src="{$base_url}/js/mobilechk.js"></script>
+</head>
+<body>
+
+
+
+<div class="t_1">
+<div>
+<h3><a href="{$cat['url']}" title="{$cat['catname']}">{lang(onlinepayment)}</a></h3>
+<p>Online Payment</p>
+</div>
+</div>
+
+<!-- 中部开始 -->
+<div class="o_box">
+<script type="text/javascript">
+
+function check(){
+
+if(document.orders.pnums.value.length==0){
+   alert("{lang(enter)}{lang(ordercontactname)}!");
+   document.orders.pnums.focus();
+   return false;
+}
+
+if(document.orders.pname.value.length==0){
+   alert("{lang(enter)}{lang(ordercontactname)}!");
+   document.orders.pname.focus();
+   return false;
+}
+
+if(document.orders.telphone.value.length==0){
+   alert("{lang(enter)}{lang(ordertel)}!");
+   document.orders.telphone.focus();
+   return false;
+}
+{if config::get('mobilechk_enable') && config::get('mobilechk_buy')}
+		if($('#mobilenum').val() == ''){
+			alert('请输入手机校验码');	
+			$('#mobilenum').focus();
+			return false;
+		}
+		{/if}
+
+if(document.orders.address.value.length==0){
+   alert("{lang(enter)}{lang(orderaddress)}!");
+   document.orders.address.focus();
+   return false;
+}
+
+if(document.orders.postcode.value.length==0){
+   alert("{lang(enter)}{lang(email)}!");
+   document.orders.postcode.focus();
+   return false;
+}
+
+
+if(document.orders.pnums.value.length==0){
+   alert("{lang(enter)}{lang(ordercontactname)}!");
+   document.orders.pnums.focus();
+   return false;
+}
+
+return true; 
+} 
+
+
+function setTotal(){ 
+var s=0; 
+
+
+$("#table tr td table").each(function(){ 
+s+=parseInt($(this).find('input[class*=text_box]').val())*parseFloat($(this).find('span[class*=price]').text()); 
+}); 
+
+$("#tab").each(function(){ 
+s+=parseInt($(this).find('input[class*=text_box]').val())*parseFloat($(this).find('span[class*=price]').text()); 
+}); 
+
+$("#total").html(s.toFixed(2)); 
+} 
+
+//加减
+
+$(function(){ 
+$(".add").click(function(){ 
+var t=$(this).parent().find('input[class*=text_box]'); 
+t.val(parseInt(t.val())+1) 
+setTotal(); 
+}) 
+$(".min").click(function(){ 
+var t=$(this).parent().find('input[class*=text_box]'); 
+t.val(parseInt(t.val())-1) 
+if(parseInt(t.val())<0){ 
+t.val(0); 
+} 
+setTotal(); 
+}) 
+
+setTotal(); 
+
+}) 
+
+</script>
+
+
+<form action="{uri()}" id="orders" name="orders" method="post" onsubmit="return check()">
+
+
+    {if $orderaidlist}
+
+       <table width="100%" border="0" align="center" cellpadding="8" cellspacing="0"  class="o_list" id="table">
+      
+        {loop $orderaidlist $val}
+		
+        <input type="hidden" name="aid[]" value="{$val['aid']}" />
+        <tr id="list{$val['aid']}">
+<td>
+<table width="100%">
+<tr><td colspan="2"><div class="line"></div></td></tr>
+		<tr>
+<td align="center" width="90" valign="middle">
+ 		  <a target="_blank" href="{$base_url}/index.php?case=archive&act=show&aid={$val[aid]}" class="o_img_box"><img src="{$val[thumb]}" onerror='this.src="{config::get('onerror_pic')}"' /></a>
+		  </td>
+		  <td align="left" class="o_title">
+		  <a target="_blank" href="{$base_url}/index.php?case=archive&act=show&aid={$val[aid]}" class="o_title">{$val[title]}</a>  <a href="#" onclick="document.getElementById('list{$val['aid']}').style.display='none';document.getElementById('thisnum{$val[aid]}').value=0;setTotal();" title="删除" class="o_del">&Chi;</a>
+		  </td>
+		  </tr>
+		  <tr>
+  <td align="right">{lang(productprice)}：</td>
+		  <td align="left">{lang(the_symbol_of_money)}&nbsp;<span id="thisprice{$val[aid]}" align="center" class="price">{$val[attr2]}</span>&nbsp;{lang(unit)}
+		  </tr>
+		  <tr>
+  <td align="right">{lang(pordernums)}：</td>
+		  <td align="left">
+		  <input class="min" name="" type="button" value="-" /> 
+<input class="text_box" type="text" id="thisnum{$val[aid]}" name="thisnum[{$val[aid]}]" value="{$val[amount]}" size="5"  onchange="changetotalprdersprice1('thistotal{$val[aid]}','thisprice{$val[aid]}','thisnum{$val[aid]}')"  />
+<input class="add" name="" type="button" value="+" /> 
+</td>
+</tr>
+</table>
+</td>
+
+        </tr>
+        {/loop}
+		<tr><td colspan="2"><div class="line"></div></td></tr>
+      </table>
+
+    {else}
+
+
+	<div id="tab">
+
+	<table width="100%" border="0" align="center" cellpadding="8" cellspacing="0"  class="o_list">
+      <tr> 
+<td align="center" width="90" valign="middle">
+ 		  <a target="_blank" href="{$base_url}/index.php?case=archive&act=show&aid={$archive[aid]}"><img src="{$archive[thumb]}" class="o_img_box" /></a>
+		  </td>
+		  <td align="left" class="o_title"><a target="_blank" href="{$base_url}/index.php?case=archive&act=show&aid={$val[aid]}">{$archive[title]}</a>
+		  </td>
+		  </tr>
+		  <tr>
+  <td align="right">{lang(productprice)}：</td>
+		  <td align="left">{lang(the_symbol_of_money)}&nbsp;<span id="thisprice" align="center" class="price">{$archive[attr2]}</span>&nbsp;{lang(unit)}</td>
+		  </tr>
+		  <tr>
+  <td align="right">{lang(pordernums)}：</td>
+		  <td align="left">
+		 <input class="min" name="" type="button" value="-" /> 
+<input class="text_box" type="text" size="5" maxlength="10" name="pnums" id="pnums" value="1" onchange="changetotalprdersprice()" />
+<input class="add" name="" type="button" value="+" /> 
+</td>
+</tr>
+		
+</table>
+
+	
+		</div>
+     {/if}
+     
+<div class="blank30"></div>
+
+<div class="thistotal">
+
+{lang(ordertotal)}：{lang(the_symbol_of_money)}<label id="total"></label>
+
+</div> 
+
+
+<div class="blank30"></div>
+<a href="#lianxi" class="lianxi fr">填写联系方式完成购物</a>
+<div style="clear:both;height:600px;"></div>
+</div> 
+
+
+
+<div class="t_1" id="lianxi">
+<div>
+<h3><a href="{$cat['url']}" title="{$cat['catname']}">{lang(contactmode)}</a></h3>
+<p>Contact information</p>
+</div>
+</div>
+<div class="o_box">
+<div class="o_list_2">
+<input type="text" name="pname" placeholder="{lang(ordercontactname)}" />
+<div class="blank10"></div>
+
+<input type="text" id="telphone" name="telphone" placeholder="{lang(ordertel)}" />
+   <div class="blank10"></div>
+      {if config::get('mobilechk_enable') && config::get('mobilechk_buy')}
+
+    <input type='text' id="mobilenum"  tabindex="4" placeholder="手机校验码" class="input" style="width:40%"  name="mobilenum" /> <input id="btm_sendMobileCode" onclick="sendMobileCode('{url('tool/smscode')}',$('#telphone'));" type="button" value="发送手机校验码" />
+<div class="blank10"></div>
+{/if}
+
+<input type="text" placeholder="{lang(orderaddress)}" name="address"/>
+<div class="blank10"></div>
+<input type="text" placeholder="{lang(postcode)}" name="postcode"/>
+{if $logisticslist}
+<div class="blank10"></div>
+{lang(pickingmethods)}：
+{loop $logisticslist $logistics}
+<input name="logisticsid" type="radio" value="{$logistics[id]}" checked="checked" /><strong>{$logistics[title]}</strong> {lang(fees)}：{$logistics[price]}
+<div class="blank10"></div>
+{$logistics[content]}
+{/loop}
+<div class="blank10"></div>
+{/if} 
+
+{if $paylist}
+{loop $paylist $pay}
+{if $pay[enabled]==1} 
+
+<input name="payname" placeholder="{lang(payment)}" type="radio" value="{$pay[pay_code]}" checked="checked" /><strong>{$pay[pay_name]}</strong>&nbsp;{lang(rates)}：{$pay[pay_fee]}%
+<!-- {$pay[pay_desc]} -->
+{/if}
+{/loop}
+{else}
+{lang(nopayment)}
+{/if}
+
+<div class="blank10"></div>
+<textarea placeholder="{lang(ordercontent)}" name="content"></textarea> 
+
+</div>
+
+	<div class="blank30"></div>
+        <div style="margin-left:1px;">
+		<input type="submit" name="submit" value=" {lang(submit_on)} " class="o_btn" />
+		<div class="blank20"></div>
+        <input type="reset" value=" {lang(reset)} " class="o_btn2" />
+		
+       </div>
+</form>
+
+<div class="blank30"></div>
+
+<div class="copy">
+{get(site_right)} <a title="{get('sitename')}" href="{$base_url}/">{get('sitename')}</a>
+<br />
+Powered by <a href="http://www.cmseasy.cn" title="CmsEasy企业网站系统" target="_blank">CmsEasy</a>
+</div>
+</div>
+</body>
+</html>

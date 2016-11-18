@@ -1,0 +1,257 @@
+@charset "utf-8";
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote,
+dl, dt, dd, ul, ol, li,
+pre,
+form, fieldset, legend, button, input, textarea, table, tr, td
+{margin:0px;padding:0px;}
+fieldset, img {border:0;}
+li {list-style:none;}
+
+address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
+code, kbd,samp { font-family: courier new, courier, monospace; }
+
+ins {text-decoration:none;}
+del {text-decoration:line-through;}
+h1, h2, h3, h4, h5, h6 {}
+h1 {font-size: 2em;}
+h2 {font-size: 1.7em;}
+h3 {font-size: 1.5em;}
+h4 {font-size: 1.38em;}
+h5 {font-size: 1.2em;}
+h6 {font-size: 1.1em;font-style: italic;}
+
+address,cite,dfn,em,var{font-style:normal;}
+caption,td {font-weight: normal;}
+cite, blackquote, em, i {font-style: italic;}
+strong, b {	font-weight: bold;}
+pre, code {font-family: monospace;font-size: 1.1em;}
+abbr[title],acronym[title]{border-bottom:1px dotted;cursor:help;}
+table {	border-collapse:collapse; /* 边框合并属性 */border-spacing:0;}
+q:before, q:after, blockquote:before, blockquote:after {content:"";content:none}
+blockquote, q {	quotes:none;}
+input,textarea {
+outline:none;
+}
+legend { color: #000; } 
+button,input,select,textarea,checkbox,radio,img  
+{vertical-align:middle;}
+
+a{ text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+.blank5,.blank10,.blank20,.blank30 {clear:both; height:5px;}
+.balnk10 {height:10px;}
+.balnk20 {height:20px;}
+.balnk30 {height:30px;}
+.clear {clear:both;}
+.fl {float:left;}
+.fr {float:right;}
+
+body { background:url(../images/bg1.jpg); font-family: '微软雅黑'; }
+
+.box {width:800px; margin:0px auto; padding:0px auto; top:40px; position: relative  ; z-index:99999; }
+
+.logo {text-align:center; margin:0px 0px 30px 0px;}
+
+#login {
+
+width:452px;
+  margin:0px auto;
+
+  background:#F4F4F4;
+-moz-box-shadow:0px 0px 15px #333;
+-webkit-box-shadow:0px 0px 15px #333;
+box-shadow:0px 0px 15px #333;
+
+border-radius:10px;
+border: 6px solid rgba(3,41,125,0.4);
+    -moz-background-clip: border;     /* Firefox 3.6? */
+    -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+    background-clip: border-box;      /* Firefox 4、Safari 5、Opera 10、IE9 */
+    -moz-background-clip: padding;     /* Firefox 3.6 */
+    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+    background-clip: padding-box;     /* Firefox 4、Safari 5、Opera 10、IE9 */
+    -moz-background-clip: content;     /* Firefox 3.6 */
+    -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
+    background-clip: content-box;      /* Firefox 4、Safari 5、Opera 10、IE9 */
+   
+}
+
+
+
+.login {padding:15px 50px; }
+
+#login h3 {
+height:22px;
+margin:2px 0px 0px 18px;
+color:#333;
+font-size:24px;
+}
+
+#login h3 span {
+color:#888;
+font-weight:normal;
+}
+
+
+
+.line {
+clear:both;
+margin:15px 0px;
+height:1px;
+background:#ccc;
+border-bottom:1px solid white;
+}
+
+#username,#password {
+width:290px;
+margin:10px 0px;
+height:40px;
+  line-height:40px;
+  padding:0px 10px 0px 50px;
+  border:1px solid #ccc;
+border-radius: 5px;
+background:white url(../images/username.gif) left center no-repeat;
+}
+#password {background:white url(../images/password.gif) left center no-repeat;
+}
+
+#username:hover,.password:hover {background:#FAFAD2 url(../images/username.gif) left center no-repeat;
+border:1px solid #A5C7FE;
+-moz-box-shadow:0px 0px 10px #A5C7FE;
+-webkit-box-shadow:0px 0px 10px #A5C7FE;
+box-shadow:0px 0px 10px #A5C7FE;
+
+}
+#password:hover {background:#FAFAD2 url(../images/password.gif) left center no-repeat;
+
+border:1px solid #A5C7FE;
+-moz-box-shadow:0px 0px 10px #A5C7FE;
+-webkit-box-shadow:0px 0px 10px #A5C7FE;
+box-shadow:0px 0px 10px #A5C7FE;
+
+}
+
+
+
+#verify {
+ width:255px;
+  height:30px;
+  line-height:30px;
+  margin:10px 0px;
+  padding:0px 15px;
+  border:1px solid #ccc;
+border-radius: 5px 0px 0px 5px;
+}
+#verify:hover {
+border:1px solid #A5C7FE;
+-moz-box-shadow:0px 0px 10px #A5C7FE;
+-webkit-box-shadow:0px 0px 10px #A5C7FE;
+box-shadow:0px 0px 10px #A5C7FE;
+
+}
+
+  .button {
+    float:left;
+           margin:10px 58px 0px 0px;
+			color:white;
+			font-size: 14px;
+			line-height:36px;
+  height:36px;
+			border:none;
+border-radius: 5px;
+			background:#E93801;
+			padding:0px 60px;
+			
+			
+		}
+
+.button:hover {
+	background:red;
+}
+
+.button_g {
+color:white;
+margin:20px 0px 0px 0px;
+			font-size: 14px;
+			line-height:26px;
+  height:26px;
+			border:none;
+border-radius: 5px;
+			background:#ccc;
+			padding:0px 10px;
+}
+
+.button_g:hover {
+	background:#E93801;
+}
+
+
+.submit {
+height:52px;
+  line-height:52px;
+font-size:12px;
+}
+
+.submit a {
+ color:#666;
+}
+
+.help {
+  color:#06349D;
+  font-weight:bold;
+  padding-left:20px;
+  background:url(../images/help.gif) left center no-repeat;
+  font-size:12px;
+}
+
+a.help {color:#06349D;}
+
+
+
+#login h4 {line-height:30px;font-size:12px;color:#888;}
+.login_info {float:right; width:170px; color:#888;  overflow:hidden;}
+.login_info ul {width:170px;}
+.login_info li {line-height:24px; list-style-type : disc; font-size:12px;color:#888;}
+#login p {line-height:20px; font-size:12px;color:#888;}
+
+
+
+
+
+
+
+#copy {
+  clear:both;
+  text-align:center;
+  line-height:24px;
+  margin-top:50px;
+  font-size:12px;
+  color:#FFF;
+}
+#copy a {color:#FFF;}
+
+.icons { width: 980px; margin: 0px auto; padding: 10px 0px 5px; text-align: right; }
+.icons img { border: 1px solid #ccc; }
+
+
+
+#verify {
+ width:255px;
+  height:30px;
+  line-height:30px;
+  margin:10px 0px;
+  padding:0px 15px;
+  border:1px solid #ccc;
+border-radius: 5px 0px 0px 5px;
+}
+#verify:hover {
+border:1px solid #A5C7FE;
+-moz-box-shadow:0px 0px 10px #A5C7FE;
+-webkit-box-shadow:0px 0px 10px #A5C7FE;
+box-shadow:0px 0px 10px #A5C7FE;
+
+}
+
+
+

@@ -1,0 +1,396 @@
+/* */
+@charset "utf-8";
+html {
+  scrollbar-face-color : #194586;
+  scrollbar-arrow-color :white;
+}
+img  {border: 0px;}
+* {
+    padding:0;
+    margin:0;
+    }
+
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote,
+dl, dt, dd, ul, ol, li,
+pre,
+form, fieldset, legend, button, input, textarea, 
+th, td
+{margin:0px;padding:0px;}
+fieldset, img {border:0;}
+li {list-style:none;}
+body,button, input, select, textarea /* for ie */ {font: tahoma,Helvetica,arial, "\5b8b\4f53", sans-serif;}
+address, cite, dfn, em, var { font-style: normal; } 
+code, kbd,samp { font-family: courier new, courier, monospace; }
+
+ins {text-decoration:none;}
+del {text-decoration:line-through;}
+h1, h2, h3, h4, h5, h6 {}
+h1 {font-size: 2em;}
+h2 {font-size: 1.7em;}
+h3 {font-size: 1.5em;}
+h4 {font-size: 1.38em;}
+h5 {font-size: 1.2em;}
+h6 {font-size: 1.1em;font-style: italic;}
+address,cite,dfn,em,var{font-style:normal;}
+caption,td {font-weight: normal;}
+cite, blackquote, em, i {font-style: italic;}
+strong, b {	font-weight: bold;}
+pre, code {font-family: monospace;font-size: 1.1em;}
+abbr[title],acronym[title]{border-bottom:1px dotted;cursor:help;}
+
+
+body {
+margin: 0px;
+padding: 0px; 
+border: 0px;
+color: #293B49;
+font-size:12px;
+line-height:150%;
+text-align: left;
+background:#F7F8FD url(bg.gif) repeat-y left top;
+background-attachment:fixed;
+font-family: '微软雅黑','Lucida Grande','Lucida Sans Unicode','宋体','新宋体',arial,verdana,sans-serif;
+}
+
+input {font-size:12px;}
+textarea {font-size:12px;line-height:22px;}
+
+.floatleft {float:left;}
+.floatright {float:right;}
+
+
+#main {margin:88px 0px 38px 0px;position:relative;}
+
+#left {width:220px;}
+#right {position:absolute; left:220px; top:0; right:0;padding:10px 30px 10px 0px;}
+
+
+a {margin: 0px;padding:0px;border:0px;}
+a:link {color:#333;text-decoration:none;}
+a:visited{color:#666;text-decoration: none;}
+a:hover{color:#3399FF;text-decoration: underline;}
+.clear {clear:both;}
+
+#top,#footer {
+	position:fixed !important;/*ie7 ff*/
+	position:absolute; 
+	z-index:999; 
+    width:100%;
+}
+#top {
+	top:0 !important;/*ie7 ff*/
+}
+
+#footer {
+	bottom:0 !important;/*ie7 ff*/
+}
+
+#top {height:88px;background:url(top_bg.png) repeat-x left top;color:white;}
+#top a {color:white;}
+#top_left {height:88px;background:url(top_left.png) left top no-repeat;}
+#top_right {height:88px;background:url(top_right.png) right top no-repeat;}
+.top {position:absolute;height:36px;line-height:36px;padding-right:15px; left:230px; top:0; right:0;}
+/*定义页面顶部样式top，包含logo和topmenu两个层*/
+#logo {float:left;width:330px;height:75px;}
+#logo a {display:block;width:330px;height:75px;}
+#logo a span {display:none;}
+.logout {display:block;float:left;width:44px;height:36px;line-height:36px;margin-left:15px;background:url(logout.gif) left 10px no-repeat;text-align:center;text-decoration:none;}
+#logo a {display:block;float:left;height: 100%;width: 100%;}
+#logo a span {display:none;}
+#nav {clear:both;height:48px;line-height:48px;font-size:14px;}
+#nav ul li {float:left;height:48px;line-height:48px;padding:0px 15px;background:url(nav_line.gif) right center no-repeat;text-align:center;}
+#nav a {float:left;display:block;height:43px;line-height:48px;color:#99CCCC;overflow:hidden;}
+#nav a:hover,#nav a.on {color:white;font-weight:bold;background:url(nav_hover.gif) center top no-repeat;font-weight:bold;text-decoration:none;}
+
+#menu {
+
+width:188px;
+font-size:14px;
+overflow:hidden;
+}
+
+#menu h5 a {
+  display:block;
+  text-align: center;
+  font-weight:bold;
+
+  height: 36px;
+  line-height: 36px;
+  overflow:hidden;
+}
+
+#menu h5 a:visited,#menu h5.on {
+  display:block;
+  text-align: center;
+  font-weight:bold;
+  border-top:1px solid #779DB1;
+	border-bottom:1px solid #779DB1;
+	background: url(icon01.gif) 30px center no-repeat;
+  height: 38px;
+  line-height: 38px;
+  overflow:hidden;
+}
+
+#menu a {
+  display:block;
+  width:190px;
+  padding-left:50px;
+  background:#FFF url(menu_a.gif) left bottom no-repeat;
+  height:36px;
+  line-height:36px;
+  overflow:hidden;
+  color:#333;
+}
+
+#menu a:hover {
+  display:block;
+  padding-left:50px;
+  color: #669A01;
+  height:36px;
+  line-height:36px;
+  background:#FFF url(menu_hover.gif) left bottom no-repeat;
+  font-weight:bold;
+}
+
+
+
+div.sdmenu {
+	width: 186px;
+}
+div.sdmenu div {
+	overflow: hidden;
+}
+
+div.sdmenu div.collapsed {
+	height: 38px;
+	line-height:38px;
+	
+}
+div.sdmenu div span {
+	display: block;
+	height:38px;
+	line-height:38px;
+	font-weight: bold;
+	padding-left:50px;
+	border-top:1px solid #779DB1;
+	border-bottom:1px solid #779DB1;
+    background: url(icon01.gif) 30px center no-repeat;
+	cursor: default;
+}
+div.sdmenu div.collapsed span {
+	height:38px;
+	line-height:38px;
+}
+
+div.sdmenu div a.current {
+	background:#F0F4F9;
+}
+div.sdmenu div a:hover {
+	text-decoration: none;
+}
+
+
+#footer {clear:both;height:38px;line-height:38px;background:url(foot_bg.gif) repeat-x left top; color:white;}
+#footer a {color:white;}
+.copy {float:right;width:532px;height:38px;line-height:38px;background:url(copy.jpg) right top no-repeat; text-align:right; padding-right:10px}
+
+
+#table,table {
+  width:100%;
+  font-size:12px;
+}
+
+
+table {	border-collapse:collapse;border-spacing:0;}
+
+#table tr td,table tr td {
+padding-left:10px;
+line-height:32px;
+border:1px solid #F8F8F8;
+}
+
+
+#table .left {
+  width:100px;
+  text-align:right;
+  padding-right:5px;
+  background:#F7F8FD;
+}
+
+#table .right {
+  text-align:left;
+  padding-left:5px;
+}
+
+#table .gray {
+
+}
+
+#c #table {
+  width:100%;
+}
+
+th {background:#E2E7EF;border-top:1px solid #C3CED8;line-height:32px;text-align:center;}
+
+
+
+
+
+#position {
+  margin-bottom:15px;
+}
+
+.box {
+
+  display:block;
+  border:1px solid #C5CDC4;
+  background:#F1F4F7 url(box_bg.gif) left top repeat-x;
+  padding:1px;
+}
+
+.blank5,.blank10,blank20 {
+  clear: both;
+  height: 5px;
+}
+
+.blank10 {
+  height:10px;
+}
+
+.blank20 {
+  height:20px;
+}
+
+.blank30 {
+  height: 30px;
+}
+
+.padding10 {
+  padding: 10px;
+}
+
+.box ul {
+  margin-top:0px;
+  margin:0 auto;
+}
+
+.box1 a {
+  height:30px;
+  line-height:30px;
+  padding-left:20px;
+  margin:0px 8px;
+  background: url(edit2.gif) left center no-repeat;
+  float:left;
+  display:inline;
+  white-space: nowrap;
+}
+
+.input {
+  border:1px solid #C2D0DB;
+  background:url(input_bg.png) right bottom repeat-x;
+  text-align:center;
+  height:24px;
+  height:24px;
+  color:#395366;
+  font-size:12px;
+}
+
+/*按钮*/
+.button {
+	background:url(buttom_bg.gif) right bottom no-repeat;
+	height:20px;
+	cursor:pointer;
+	text-align:center;
+	padding:2px 10px;
+	border:1px solid #879DAB;
+	color:#395366;
+	overflow:hidden;
+}
+
+#message {
+    height:22px;
+	line-height:22px;
+	padding:0px 10px;
+    background:#EEF2FB;
+	border:1px dotted #ccc;
+}
+
+#quick {
+  float:rights;
+}
+
+.hid_box {
+  clear:both;
+  width:100%;
+}
+
+.hid_box h5 {
+  display:block;
+  height:26px;
+  line-height:26px;
+  padding-left:50px;
+  font-size:12px;
+  font-weight:normal;
+  background:url(hid_box.gif) left top no-repeat;
+}
+
+.hid_box ul li {
+  padding:5px 10px;
+}
+
+.hid_box .hbox {
+  padding:20px 50px 20px;
+
+}
+
+.hid_box table tr td,.hid_box table tr td a {
+  font-size:12px;
+}
+
+.hbox table .left {
+  text-align:right;
+  padding-right:10px;
+}
+
+/************* 分页 */
+
+.page {
+  clear:both;
+  width:78%;
+  margin:30px 0px 0px;
+}
+
+.page strong {
+  color:#FFF;
+  display:block;
+  float:left;
+  height:18px;
+  line-height:18px;
+  float:left;
+  padding:0px 8px;
+  background:#ccc;
+  border:1px solid #ccc;
+  margin: 0px 3px 0px 0px;
+}
+.page a {
+  display:block;
+  float:left;
+  height:18px;
+  line-height:18px;
+  float:left;
+  padding:0px 8px;
+  border:1px solid #CCC;
+  text-decoration:none;
+  margin: 0px 3px 0px 0px;
+  color:#555;
+}
+
+.page span {
+  float:right;
+}
+
+.child {display:block;width:14px;height:32px;float:right;cursor:pointer;margin-right:20px;background:url(child.gif) left 12px no-repeat;}
+
+#template {clear:both;}
+#template div {float:left; width:220px;height:190px;margin:5px 6px;}
+#template div img {width:220px;height:160px;}

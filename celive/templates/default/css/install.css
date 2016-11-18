@@ -1,0 +1,112 @@
+/*
+ * 易通CMS Style
+ * ============================================================================
+ * 版权所有 2008-2009 易通CMS，并保留所有权利。
+ * -------------------------------------------------------
+ * 这不是一个自由软件！
+ * 也不是一个开源软件！
+ * 本软件已经申请软件版权保护！
+ * 您不能在任何目的的前提下对程序代码进行破解、修改和使用；
+ * 不允许对程序代码以任何形式任何目的的再发布。
+ * ============================================================================
+ * @author:   九州易通科技有限公司
+ * @version:  v1.0
+ * ---------------------------------------------
+ * $Id: Style Sat Dec 06 09:50:51 CST 2008
+  
+  ---------------------------------------------------------------
+  1. base (全局基本属性)
+  ---------------------------------------------------------------
+  2.link (链接)
+  ---------------------------------------------------------------
+  3.font (字体)
+  ---------------------------------------------------------------
+  4. layout (框架)
+  ---------------------------------------------------------------
+  5. header (头部)
+  ---------------------------------------------------------------
+  6.content (页中)
+  ---------------------------------------------------------------
+  7.footer (页底)
+  ---------------------------------------------------------------
+  8. search (当前位置/文章搜索)
+  ---------------------------------------------------------------
+  9.assist (辅助)
+  ---------------------------------------------------------------
+  10.tab (切换)
+  ---------------------------------------------------------------
+  11.ad (广告)
+  ---------------------------------------------------------------
+  
+*/
+
+
+/* 
+  --------------------------------------
+  *****  1. base(全局基本属性)   *****
+  --------------------------------------
+*/
+html {
+
+  scrollbar-3dlight-color: #BDE8F9;
+  scrollbar-highlight-color: #BDE8F9;
+  scrollbar-face-color: #BDE8F9;
+  scrollbar-arrow-color: white;
+  scrollbar-shadow-color: #BDE8F9;
+  scrollbar-darkshadow-color: #BDE8F9;
+  scrollbar-base-color: #BDE8F9;
+  scrollbar-track-color: #F5F5F5;
+}
+
+body{margin:0px; padding:0px; 
+background:#FFF url(../skin/install/bg.jpg) center top no-repeat;}
+
+div,td{font-family:Tahoma, Verdana, Arial, Helvetica, "Bitstream Vera Sans", sans-serif; font-size:12px; color:#333333;}
+a{color:#333333; text-decoration:none;}
+a:hover{color:#FF6600; text-decoration:none;}
+.clear{clear:both;}
+img{border:none}
+ul{list-style:none;}
+form{margin:0px;}
+input{
+	color:#333333; 
+	font-size:12px;
+	height:17px;  
+	line-height:17px;
+	border:1px solid #B4B4B4;
+	padding:0px 2px 0px 2px;
+	}
+textarea{
+	color:#333333; 
+	font-size:12px; 
+	border:1px solid #B4B4B4; 
+	padding:0px 2px 0px 2px;}
+
+#body {width:100%;padding:30px 0px;background:url(bg.jpg) center top no-repeat;}
+#main {width:788px;margin:0px auto;padding:0px auto;}
+.copy {text-align:right;color:#999;}
+
+#logo {height:44px;line-height:44px;margin-bottom:20px;padding-right:20px;text-align:right;color:white;background:url(../skin/install/login_logo.png) left top no-repeat;}
+#logo a {color:white;}
+
+.button {margin-right:20px; float:right;height:22px;line-height:22px;border:1px solid #ccc;padding:0px 10px;background:url(../skin/install/buttom_bg.gif) right bottom no-repeat; width:80px;}
+#readpact {border:none;}
+#info {padding:8px;border:2px solid #56AED2;background:#BDE8F9;}
+.agreement {height:288px; padding:10px; overflow:auto;background:#FFF;}
+.agreement p {line-height:22px;margin:0px;padding:0px;}
+input {width:180px;}
+.tips td{
+	background-color: #f9f9f9;
+	font-family: Verdana;
+	color: #FF6600;
+	font-size: 12px;
+}
+
+.blank30,.blank10,.blank5 {clear:both;height:5px;overflow:hidden;}
+.blank30 {height:30px;}
+.blank10 {height:10px;}
+
+table {background:#56AED2;border:1px solid #56AED2;}
+td {line-height:22px;padding-left:10px;background:#FFF;}
+th {line-height:22px;background:#F5F5F5;}
+

@@ -1,0 +1,50 @@
+{template 'header.html'}
+{template 'system/cslide.html'}
+<!-- 面包屑导航开始 -->
+{template 'position.html'}
+<!-- 面包屑导航结束 -->
+
+
+{loop type($typeid) $t}
+
+
+<!-- 页面标题开始 -->
+<div class="title">
+	<div class="container">
+	<h3><a title="{$t[typename]}" href="{$t[url]}">{$t[typename]}</a></h3>
+	<p>{$t[htmldir]}</p>
+	</div>
+</div>
+<!-- 页面标题结束 -->
+
+
+<!-- 中部开始 -->
+<div class="container list-container">
+	<!-- 内容缩略图列表 -->
+	<div class="blog-masonry masonry-true">
+	{loop archive(0,$t[typeid],0,'0,0,0',20,'aid',1,ture,0) $i $archive}
+	<div class="post-masonry col-xs-12 col-sm-6 col-md-3">
+	<a href="{$archive['url']}" class="img-auto">
+	<img class="img-responsive" alt="{$archive['stitle']}" src="{$archive['thumb']}" onerror='this.src="{config::get('onerror_pic')}"' />
+	<h4>{$archive['title']}</h4></a>
+	</div>
+	{/loop}
+	</div>
+	<!-- 内容缩略图列表结束 -->
+	<div class="blank30"></div>
+</div><!-- /container -->
+
+
+
+{/loop}
+
+
+<div class="blank30"></div>
+
+
+<!-- 页底推荐图文产品开始 -->
+{tag_内容页底图文产品四条}
+<!-- 页底推荐图文产品结束 -->
+
+
+{template 'footer.html'}

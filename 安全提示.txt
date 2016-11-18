@@ -1,0 +1,1 @@
+安装后，请删除install文件夹内的index.php 文件 ！！！

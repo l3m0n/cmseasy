@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta content="telephone=no" name="format-detection">
+<meta http-equiv="x-rim-auto-match" content="none">
+<title>{lang(membercenter)}</title>
+<meta name="keywords" content="{getKeywords($archive,$category,$catid,$type)}" />
+<meta name="description" content="{getDescription($archive,$category,$catid,$type)}" />
+<meta name="author" content="CmsEasy Team" />
+<link rel="icon" href="{$base_url}/favicon.ico" type="image/x-icon" />
+
+<link href="{$skin_path}/css/user_w.css" rel="stylesheet" type="text/css">
+{if get('wap_style_color')=='1'}
+<link href="{$skin_path}/css/wap1.css" rel="stylesheet" /> 
+{elseif config::get('wap_style_color')=='2'}
+<link href="{$skin_path}/css/wap2.css" rel="stylesheet" /> 
+{elseif config::get('wap_style_color')=='3'}
+<link href="{$skin_path}/css/wap3.css" rel="stylesheet" /> 
+{elseif config::get('wap_style_color')=='4'}
+<link href="{$skin_path}/css/wap4.css" rel="stylesheet" /> 
+{elseif config::get('wap_style_color')=='5'}
+<link href="{$skin_path}/css/wap5.css" rel="stylesheet" /> 
+{elseif config::get('wap_style_color')=='6'}
+<link href="{$skin_path}/css/wap6.css" rel="stylesheet" /> 
+{elseif config::get('wap_style_color')=='7'}
+<link href="{$skin_path}/css/wap7.css" rel="stylesheet" /> 
+{elseif config::get('wap_style_color')=='8'}
+<link href="{$skin_path}/css/wap8.css" rel="stylesheet" /> 
+{elseif config::get('wap_style_color')=='9'}
+<link href="{$skin_path}/css/wap9.css" rel="stylesheet" /> 
+{else}
+{/if} 
+<meta name="author" content="CmsEasy Team" />
+<link rel="icon" href="{$base_url}/favicon.ico" type="image/x-icon" />
+<script src="{$skin_path}/js/jquery-1.8.3.min.js"></script>
+<script src="{$skin_path}/js/jquery.wap.menu.min.js"></script>
+<body>
+
+
+  <header>
+    <div id="navbar">
+      <a href="#" class="menubtn">menu</a>
+      <!-- use captain icon for toggle menu -->
+      <div id="hamburgermenu">
+
+	   <strong><a href="#">{lang(edituserinfo)}</a></strong>
+  
+<div class="member_info">
+			  <span>
+{lang(welcomeyou)}，{$user.username} [<a href="{url('user/logout')}" class="logout">{lang(logout)}</a>]</span>
+<div class="blank10"></div>
+              <a href="{url('user/edit/table/user')}">{lang(edituserinfo)}</a>&nbsp;&nbsp;<a href="{url('user/changepassword')}">{lang(changepassword)}</a>
+
+
+              </div>
+        <ul>
+{if chkfpw('add_archive',$user['groupid'])}<li><a href="{url('manage/add/manage/archive')}">{lang(addcontent)}</a></li>{/if}
+<li><a href="?m={$user.userid}">{lang(personal_space)}</a></li>
+<li><a href="{url('archive/orders')}">{lang(shoppingcart)}</a>
+<li><a href="{url('user/edit/table/user')}">{lang(edituserinfo)}</a></li>
+<li><a href="{url('user/changepassword')}">{lang(changepassword)}</a></li>
+<li><a href="{url('manage/orderslist/manage/orders')}">{lang(vieworders)}</a></li>
+<!-- <li><a href="{url('/manage/invitelist/manage/invite')}">{lang('invitation-code')}</a></li> -->
+<li><a href="{url('/manage/commentlist/manage/comment')}">{lang(comment)}</a></li>
+<li><a href="{url('/manage/zanlist/manage/zanlog')}">{lang(praise)}</a></li>
+
+        </ul>
+      </div>
+    </div>
+    <div class="overlay"></div>
+
+	<a title="{get(sitename)}" href="{$base_url}/" class="logo" ><img src="{get('site_logo')}" alt="{get(sitename)}" width="{get(logo_width)}" height="{get(logo_height)}" />
+<span>{get('sitename')}</span></a>
+  </header>
+  
+
+ <div class="user_welcome">
+<img src="{$skin_path}/images/user/avatar.png" />
+<span>
+{lang(welcomeyou)}，{$user.username} [	<a href="{url('user/logout')}" class="logout">{lang(logout)}</a>	]
+</span>
+
+</div>
+
+ <div class="user_function">
+
+<a href="{url('user/edit/table/user')}" class="icon_1">{lang(edituserinfo)}</a>
+
+<a href="{url('user/changepassword')}" class="icon_2">{lang(changepassword)}</a>
+
+<a href="{url('manage/orderslist/manage/orders')}" class="icon_3">{lang(vieworders)}</a>
+<div class="clear"></div>
+</div>
+
+  
+<div class="line"></div>
+
+        <?php
+if(hasflash()){
+	$showmessage = showflash();
+	if(strlen($showmessage)>200){ 
+?>
+<div id='message'><span style="color:red;float:left"><?php echo $showmessage; ?></span>
+<span style="color:blue;float:right"><a href="#" onClick="javascript:turnoff('#message');">(×)</a></span></div><div class="blank20"></div>
+<?php
+    }else{
+?>
+<script type="text/javascript">
+art.dialog({
+		id:'messagebox',
+		content:'<?php echo $showmessage; ?>',
+		title:'{lang(prompted)}',
+		time: 2,
+		lock:true
+	});
+</script>
+<?php
+    }
+}
+?>
+

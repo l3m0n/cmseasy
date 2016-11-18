@@ -1,0 +1,163 @@
+{template 'header.html'}
+
+
+<div class="blank10"></div>
+
+<!-- 页面标题开始 -->
+<div class="t_1 wow bounceIn">
+<div>
+<h3>{lang('member_retrieve_password')}</h3>
+<p>User Getpass</p>
+</div>
+</div>
+
+<div class="p10">
+
+<script type="text/javascript">
+
+function check()
+{
+    if(document.loginform.username.value.length==0){
+        alert("{lang(please_enter_your_user_name)}");
+        document.loginform.username.focus();
+        return false;
+    }
+
+    if(document.loginform.password.value.length==0){
+        alert("{lang(please_set_a_password)}");
+        document.loginform.password.focus();
+        return false;
+    }
+
+    if(document.loginform.password2.value.length==0){
+        alert("{lang(enter_confirm_password)}");
+        document.loginform.password2.focus();
+        return false;
+    }
+
+    if(document.loginform.aquestion.value.length==0){
+        alert("{lang(set_security)}");
+        document.loginform.aquestion.focus();
+        return false;
+    }
+
+    if(document.loginform.question.value.length==0){
+        alert("{lang(please_set_the_security_answer)}");
+        document.loginform.question.focus();
+        return false;
+    }
+
+    if(document.loginform.answer.value.length==0){
+        alert("{lang(please_enter_the_custom_security_answer)}");
+        document.loginform.answer.focus();
+        return false;
+    }
+    if(document.loginform.verify.value.length==0){
+        alert("{lang(enter)}{lang(verifycode)}!");
+        document.loginform.verify.focus();
+        return false;
+    }
+
+
+}
+
+function set_question(value)
+{
+	document.getElementById("question").value=value;
+	document.getElementById("question").focus();
+}
+</script>
+<style type="text/css">/*定义标题*/
+
+.btn {
+float:left; 
+width:100%;
+line-height:28px;
+padding:5px 0px;
+color:#FFF;
+font-size:14px;
+border-radius: 3px 3px 3px 3px;
+overflow:hidden;
+	cursor:pointer;
+	display:block;border:none;
+	text-align:center;-moz-box-shadow: 3px 3px 4px #DFDFDF;-webkit-box-shadow: 3px 3px 4px #DFDFDF;box-shadow: 3px 3px 4px #DFDFDF;
+}
+.btn:hover{ background-color:#FF4A00;}
+
+a.btn {color:white; }
+
+
+#verify {
+ width:255px;
+  height:30px;
+  line-height:30px;
+  margin:10px 0px;
+  padding:0px 15px;
+  border:1px solid #ccc;
+border-radius: 5px 0px 0px 5px;
+}
+#verify:hover {
+border:1px solid #A5C7FE;
+-moz-box-shadow:0px 0px 10px #A5C7FE;
+-webkit-box-shadow:0px 0px 10px #A5C7FE;
+box-shadow:0px 0px 10px #A5C7FE;
+
+}
+
+#username,
+#password {
+  width:93%;
+  height:28px;
+  line-height:28px;
+  padding:0px 10px;
+  border:1px solid #ccc;
+  font-weight:bold;
+  font-size:12px;
+  border-radius: 3px 3px 3px 3px;
+}
+</style>
+
+
+<form id="login_form"   name="loginform" method="post"  action="<?php echo url('user/getpass') ?>">
+<input name="step" type="hidden" value="1">
+ <div class="blank10"></div>
+<input name="username" type="text" id="username" onfocus="if(this.value=='{lang(username)}" onblur="if(this.value=='') this.value='{lang(againpassword)}'" value="{lang(username)}" tabindex="1"  class="input" />
+
+{if config::get('verifycode')=='1'}
+<input type='text' id="verify"  tabindex="3"  name="verify" />{verify()}
+<div class="blank10"></div>
+{/if}
+{if config::get('verifycode')=='2'} 
+<div class="blank30"></div>
+<div id="verifycode_embed"></div>
+<script src="http://api.geetest.com/get.php"></script>
+<script>
+var loadGeetest = function(config) {
+	window.gt_captcha_obj = new window.Geetest({
+		gt : config.gt,
+		challenge : config.challenge,
+		product : 'float',
+		offline : !config.success
+	});
+	gt_captcha_obj.appendTo("#verifycode_embed");
+};
+
+$.ajax({
+	url : '{url('tool/geetest',0)}',
+	type : "get",
+	dataType : 'JSON',
+	success : function(result) {
+		//console.log(result);
+		loadGeetest(result)
+	}
+});
+</script>
+{/if}
+<div class="blank30"></div>
+<input type="submit" name="submit" value=" {lang(nextstep)} " class="btn"   />
+<div class="blank30"></div>
+</form>
+<div class="blank30"></div>
+</div>
+</div>
+{template 'footer.html'}

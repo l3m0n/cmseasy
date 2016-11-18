@@ -1,0 +1,203 @@
+{template 'header.html'}
+<!-- 面包屑导航开始 -->
+{template 'position.html'}
+<!-- 面包屑导航结束 -->
+
+
+<!-- 页面标题开始 -->
+<div class="title wow bounceIn">
+	<div class="container">
+	<h3>{$archive[title]}</h3>
+	<p class="t_tools1">{lang(author)}：<a>{$archive[author]}</a>&nbsp;&nbsp; {lang(adddate)}：{$archive[adddate]}{if $archive[attr3]}&nbsp;&nbsp; {lang(source)}：{$archive[attr3]}{/if}</p>
+	<script src="{$skin_path}/js/c_tool.js" type="text/javascript" ></script><!--用于打印和文字放大-->
+	</div>
+</div>
+<!-- 页面标题结束 -->
+
+
+
+
+
+<!-- 中部开始 -->
+<div class="container wow fadeInUp">
+
+
+	<!--用于打印和文字放大-->
+	<div class="content_tools_box">
+		<p class="content_tools">
+			<a href="javascript:CallPrint('print');">打印本文</a> &nbsp; &nbsp; &nbsp; <a href="javascript:doZoom(14)">小</a>&nbsp; &nbsp;<a href="javascript:doZoom(18)">中</a>&nbsp; &nbsp;<a href="javascript:doZoom(20)">大</a>
+		</p>
+		<div class="clearfix"></div>
+		<script src="{$skin_path}/js/c_tool.js" type="text/javascript" ></script>
+	</div>
+	<!--/用于打印和文字放大-->
+
+
+
+<div class="content" id="print">
+<!-- 正文 -->
+<div id="content_text">
+{$archive[content]}
+</div>
+</div>
+<div class="blank30"></div>
+
+
+{if $archive[attr2]}
+<!-- 价格 -->
+<div class="blank10"></div>
+{lang(productprice)}： {$archive[attr2]}
+{/if}
+
+{if $archive[tag]}
+<!-- tag -->
+<div class="blank10"></div>
+{lang(tag)}： {$archive[tag]}
+{/if}
+
+{if $archive[special]}
+<!-- 专题 -->
+<div class="blank10"></div>
+{lang(special)}： {$archive[special]}
+{/if}
+
+
+{if $archive[type]}
+<!-- 分类 -->
+<div class="blank10"></div>
+{lang(type)}： {$archive[type]}
+{/if}
+
+
+{if $archive[area]}
+<!-- 地区 -->
+<div class="blank10"></div>
+{lang(area)}： {$archive[area]}
+{/if}
+
+<div class="blank30"></div>
+{if $pages>1}
+<!-- 内页分页 -->
+<div class="blank10"></div>
+<div class="pages">
+{archive_pagination($archive)}
+</div>
+<div class="blank30"></div>
+{/if}
+
+
+<!--自动调用自定义字段-->
+{$archive['my_fields']}
+
+<div class="blank20"></div>
+
+
+<?php if(archive_attachment($archive['aid'],'id')) { ?>
+<!-- 附件 -->
+<p>
+{lang(attachment)}：{attachment_js($archive['aid'])}
+</p>
+<?php } ?>
+<div class="blank30"></div>
+</div>
+
+<?php if(hasflash()) { ?>
+<div style="color:red;font-size:16px;"><?php echo showflash(); ?></div><?php } ?>
+
+<!-- 投票 -->
+{vote_js($archive[aid])}
+
+
+<div class="container">
+
+<!-- 自定义表单开始 -->
+{if $archive['showform']}
+{template 'myform/nrform.html'}
+{/if}
+<!-- 自定义表单结束 -->
+
+
+
+<div class="blank60"></div>
+
+
+
+<!-- 上下页开始 -->
+<div id="page">
+{if $archive['p']['aid']}
+<strong>{lang(archivep)}</strong><a href="{$archive['p']['url']}">{$archive['p']['title']}</a>
+{else}
+<strong>{lang(archivep)}</strong>{lang(nopage)}	
+{/if}
+<div class="blank10"></div>
+{if $archive['n']['aid']}
+ <strong>{lang(archiven)}</strong><a href="{$archive['n']['url']}">{$archive['n']['title']}</a>
+{else}
+<strong>{lang(archiven)}</strong>{lang(nopage)}	
+{/if}
+</div>
+<!-- 上下页结束 -->
+</div>
+
+
+
+
+<!-- 相关文章开始 -->
+{if is_array($likenews)}
+<div class="blank30"></div>
+</div>
+
+<!-- 页面标题开始 -->
+<div class="title">
+	<div class="container">
+	<h3>{$archive[tag]}</h3>
+	<p>{lang(relatedcontent)}</p>
+	</div>
+</div>
+<!-- 页面标题结束 -->
+
+
+<div class="container">
+
+
+<ul class="list_page_1">
+<!-- 内容列表开始 -->
+{loop $likenews $item}<li>
+<div class="list_page_date">
+<span>{=sdate($item[adddate],'d')}</span>
+<p>{=sdate($item[adddate],'Y-m')}</p>
+</div>
+<div class="li_text">
+<p><a title="{$item[title]}" href="{$archive[url]}" target="_blank" class="list_page_t">{$archive[title]}</a></p>
+<p>{cut(strip_tags($item['introduce']),110)}… <a href="{$archive[url]}" target="_blank">[{lang(more)}]</a></p>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</li>
+{/loop}
+<!-- 内容列表结束 -->
+</ul>
+{/if}
+<!-- 相关文章结束 -->
+
+
+
+</div>
+<div class="blank30"></div>
+<!-- 评论框开始 -->
+{template 'comment/comment.html'}
+<!-- 评论框结束 -->
+
+
+<div class="clear"></div>
+
+</div>
+</div>
+
+
+<!-- 页底推荐图文产品开始 -->
+{tag_内容页底图文产品三条}
+<!-- 页底推荐图文产品结束 -->
+{template 'width_max.html'}
+
+{template 'footer.html'}

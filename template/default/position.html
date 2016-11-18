@@ -1,0 +1,53 @@
+<nav class="sub_menu">
+<div class="container">
+<?php
+if(front::get('case') == 'area'){
+?>
+<h3>{area::getpositonhtml(get('province_id'),get('city_id'),get('section_id'),get('id'))}</h3>
+<?php
+}elseif($topid==0){
+?>
+<?php
+}elseif(front::get('case') == 'announ'){
+?>
+<h3><a title="{lang(siteannoun)}" href="#">{lang(siteannoun)}</a></h3>
+<?php
+}elseif(front::get('case') == 'guestbook'){
+?>
+<h3><a title="{lang('guestbook')}" href="#">{lang('guestbook')}</a></h3>
+<?php
+}elseif(front::get('case') == 'comment'){
+?>
+<h3><a title="{$t['name']}" href="{$t.url}">{lang('commentlist')}</a></h3>
+<?php
+}elseif(front::get('case') == 'type'){
+?>
+<h3>{type::getpositionhtml($type['typeid'])}</h3>
+<?php
+}elseif(front::get('case') == 'special'){
+?>
+<h3><a title="{$special[title]}" href="#">{$special[title]}</a></h3>
+<?php
+}elseif(front::get('case') == 'tag'){
+?>
+<h3><a title="{$tag}" href="#">{$tag}</a></h3>
+<?php
+}elseif(front::get('case') == 'mailsubscription'){
+?>
+<h3><a href="#" title="{lang(mailsubscription)}">{lang(mailsubscription)}</a></h3>
+<?php
+}else{
+?>
+<h3>{$category[$catid][catname]}</h3>
+{loop categories($catid) $i $t}
+<a href="{$t[url]}"{if $t[catid]==$catid} class="sub_menu_on"{elseif $i<1} class="sub_menu_on"{/if}>{$t[catname]}</a>
+{/loop}
+<?php
+}
+?>
+
+</div>
+
+</nav>
+
+<!--/sub_menu-->

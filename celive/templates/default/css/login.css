@@ -1,0 +1,35 @@
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #016aa9;
+	overflow:hidden;
+}
+.text {
+	color: #000000;
+	font-size: 12px;
+}
+.tips {
+	color:red;
+	font-size:12px;
+	position:absolute;
+	left:45%;
+	top:18%;
+}
+img  {border: 0px;}
+* {
+    padding:0;
+    margin:0;
+    }
+body {background:#15486E url(../images/login_bg.gif) left top;}
+#login {width:788px;height:155px;margin:0px auto;padding:0px auto;background:url(../images/login_line.gif) 350px 1px no-repeat;font-size:12px;color:white;text-align:left;}
+#login p {line-height:22px;font-size:14px; height:28px;}
+.input {width:148px;height:22px;line-height:22px;padding:0px 8px;font-size:14px;font-weight:bold;background:#E1DFDF url(../images/login_btn.gif) repeat-x left top;border:1px solid #002047;}
+.button {margin:6px 0px 0px 50px;height:24px;width:80px; line-height:24px;}
+.copy {float:left;width:330px;margin:20px 0px 15px;color:#FFF;padding-top:54px;
+background:url(../images/login_logo.gif) no-repeat; 
+
+    }
+-->

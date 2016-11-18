@@ -1,0 +1,168 @@
+html {scrollbar-face-color :#D5E5F4;scrollbar-3dlight-color:#D5E5F4;scrollbar-highlight-color:#FFF;scrollbar-darkshadow-color : #D5E5F4;scrollbar-shadow-color :#D5E5F4;scrollbar-arrow-color :white; }
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote,/* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td /* table elements 表格元素 */
+{margin:0px;padding:0px;}
+/* ================= 去掉fieldset和img默认边框 ================== */
+fieldset, img {border:0;}
+/*=================== 去掉列表默认属性 ========================= */
+li {list-style:none;}
+/*===================  设置默认字体 ========================= */
+body,button, input, select, textarea /* for ie */ {font: 78%/1.5 tahoma,Helvetica,arial, "\5b8b\4f53", sans-serif;}
+address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
+code, kbd,samp { font-family: courier new, courier, monospace; }
+
+ins {text-decoration:none;}
+del {text-decoration:line-through;}
+address,cite,dfn,em,var{font-style:normal;}
+/*Left-aligns text in caption and th*/
+caption,td {font-weight: normal;}
+cite, blackquote, em, i {font-style: italic;}
+strong, b {	font-weight: bold;}/* 着重标记 */ 
+/* 预格式标记 */   
+pre, code {font-family: monospace;font-size: 1.1em;}
+/* 缩写标记 */   
+abbr[title],acronym[title]{border-bottom:1px dotted;cursor:help;}
+
+/** 重置表格元素 **/
+table {	border-collapse:collapse; /* 边框合并属性 */border-spacing:0;}
+
+/** 重置表单元素 **/
+legend { color: #000; }
+button, input, select, textarea { font-size: 100%; }
+
+/** 重置其他元素 **/
+a{ text-decoration: none; }
+a:hover{ text-decoration: underline; }
+html{color:#000;background:#FFF;}
+
+
+img {border:none;}
+
+/**/
+.clear{ clear:both;}
+.clearall{ clear:both; height:0; overflow:hidden; line-height:0;}
+
+body {
+margin: 0px;
+padding: 0px; 
+border: 0px;
+color:#1B4670;
+font-size:14px;
+line-height:150%;
+text-align: left;
+font-family: '微软雅黑','Lucida Grande','Lucida Sans Unicode','宋体','新宋体',arial,verdana,sans-serif;
+}
+
+input {font-size:12px;}
+textarea {font-size:12px;line-height:22px;}
+
+.floatleft {float:left;}
+.floatright {float:right;}
+
+
+a {margin: 0px;padding:0px;border:0px;color:#27394F;text-decoration:none;}
+a:link {color:#333;text-decoration:none;}
+
+a:hover{color:#3399FF;text-decoration:none;}
+
+#top {
+	top:0 !important;/*ie7 ff*/ 
+	height:77px;
+	background:url(../images/top_bg.png) right top no-repeat;
+    width:100%;
+    }
+
+.top_left{ float:left; width:330px; background:url(../images/top_left.png) no-repeat left; height:77px;}
+.top_left1{ padding-top:20px; font-size:18px; color:#fff; padding-left:60px;}
+.top_left1 a {color:white;}
+.top_left2{ padding-top:10px; font-size:12px; color:#fff; padding-left:20px;}
+.top_right{ width:29px; float:right; height:67px;padding-top:10px;}
+
+/* 右侧 */
+#right {width:182px;top:81px;_top:0px;position:fixed !important;/*ie7 ff*/
+	position:absolute;
+	z-index:90;  right:0px;
+    padding:20px 10px;
+	bottom:0px; top:0px;
+	}
+
+
+/* 左侧 */
+#left {position:fixed !important;/*ie7 ff*/position:absolute; left:0px; top:77px; _top:0px; right:222px;bottom:0px;  padding:20px; z-index:99;background:white;}
+#ChatHistory {position:fixed !important;/*ie7 ff*/position:absolute;  left:0px; top:0px; right:222px;bottom:0px; _width:750px;  _height:220px; z-index:99; background:white; padding:20px;overflow:auto; table-layout:fixed; word-break: break-all;}
+
+.clear {clear:both;}
+
+#top,#footer {
+	position:fixed !important;/*ie7 ff*/
+	position:absolute; 
+	z-index:999; 
+    width:100%;
+
+}
+
+.input_box{ 
+height:140px; width:auto;  background:#fff; width:100%; margin-top:30px; border:1px solid #eee; line-height:22px; }
+
+.btn_box { position:fixed !important;/*ie7 ff*/position:absolute;	z-index:999; right:60px;bottom:60px;
+ width:100px; float:right;}
+
+a.enter_btn {display:block; width:120px; height:57px;
+background:url(../images/btn.gif) left top no-repeat;
+border:none;}
+a.enter_btn:hover {
+background:url(../images/btn-hover.png) left top no-repeat !important; 
+*background:none;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/celive/templates/default/images/btn-hover.png',sizingMethod='crop');
+}
+
+/* 页底 */
+
+#footer {
+	bottom:0 !important;/*ie7 ff*/
+	height:200px;
+	line-height:24px;
+	background:#f5f5f5 url(../images/foot_bg.gif) right top no-repeat;
+	overflow:hidden;
+	font-size:12px;
+	color:#999;
+	
+}
+.footer1{position:fixed !important;/*ie7 ff*/position:absolute;	z-index:999;left:5px; bottom:165px; width:500px; height:28px; padding-left:20px; padding-top:5px; }
+.footer1 img{ float:left; margin-right:5px;}
+.footer_content{ padding:15px; color:#333;}
+#footer a {color:#999;}
+
+
+
+
+/* 辅助定位 */
+
+.blank5,.blank10,blank20 {
+  clear: both;
+  height: 5px;
+}
+
+.blank10 {
+  height:10px;
+}
+
+.blank20 {
+  height:20px;
+}
+
+.blank30 {
+  height: 30px;
+}
+
+.padding10 {
+  padding: 10px;
+}
+
+#fileToUpload {
+	width:135px;
+}
+

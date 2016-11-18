@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* CSS Document */
+.cright_ico{
+	margin:0 auto;
+	background: url('rtitleico.gif') no-repeat 0 -0px;
+	height: 20px;
+	width: 16px;
+}
+.cleft_box_content {
+	margin:0px;
+	padding:0px;
+	width: 128px;
+	overflow: hidden;
+	float:left;
+	background:none;
+}
+
+.cheader .ctitle{
+	margin:0 auto;
+	padding-top:0px;
+	padding-left:5px;
+	width:80px;
+	height:16px;
+	line-height:16px;
+	font-weight:bold;
+	font-family:宋体, Arial, Helvetica, sans-serif;	
+	color:#FFF;
+}
+.cleft_box_content{
+    width:128px;
+	
+}
+.cleft_box_content .serverlist{
+	text-align:center;
+	width:128px;
+	background: url(leftcontentbg.png) repeat-y !important; 
+  *background:none;
+  _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/leftcontentbg.png',sizingMethod='crop');
+}
+
+
+.cleft_box_content .serverlist ul {
+
+	list-style: none;
+	margin:0 auto;
+    padding: 0;
+}
+.cleft_box_content .serverlist ul li {
+	
+	padding-top:3px;
+	line-height:180%;
+    margin:0px auto;
+}
+.cleft_box_content .cfooter{
+	width:128px;
+	height:22px;
+}

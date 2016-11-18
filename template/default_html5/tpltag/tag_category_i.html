@@ -1,0 +1,3 @@
+{loop plugins::categoryinfo($_catid) $cat}
+<a href="{$cat['url']}" title="{$cat['catname']}">{$cat['catname']}</a>/<span>{$cat['htmldir']}</span>
+{/loop}

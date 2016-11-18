@@ -1,0 +1,23 @@
+<div class="box1"> 
+<div class="title2"> 
+<div class="lanwd2">{lang(categorylist)}</div> 
+<div class="english2">/ Category</div> 
+</div> 
+<div class="content"> 
+<div class="blank10"></div> 
+<ul class="ul2g">
+<!--只展开当前栏目所在一级栏目下的分类-->
+<?php $__pid = getcategoryparentsid($catid);?>
+{loop categories_nav() $t}
+{if $t[catid]==$__pid}
+<!-- {loop category::listcategorydata($__pid) $type} -->
+<li><a href="{$t1[url]}" title="{$t1[catname]}"{if $t1[catid]==$catid} class="on"{/if}>{$t1[catname]}</a></li>
+<!-- {/loop} -->
+{/if}
+{/loop}
+<!--只展开当前栏目所在一级栏目下的分类-->
+</ul>
+<div class="blank10"></div> 
+</div> 
+</div> 
+<div class="blank10"></div>

@@ -1,0 +1,30 @@
+<div id="custom_places" style="width: {get(ditu_width)}px; height: {get(ditu_height)}px;"></div>
+
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key={get('ditu_google_key')}&callback=initMap">
+    </script>
+
+<script src="{$skin_path}/js/mapsed.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function() {
+                $("#custom_places").mapsed({
+                    showOnLoad:
+                            [
+                                {
+                                    autoShow: true,
+                                    //canEdit: false,
+                                    lat: {get('ditu_center_left')},
+                                    lng: {get('ditu_center_right')},
+                                    name: "{get('ditu_title')}",
+                                    street: "{get('ditu_content')}",
+									zoom: "{get('ditu_level')}",
+                                    userData: 1
+                                },
+                               
+                            ]
+
+                });
+
+               
+            });
+        </script>

@@ -1,0 +1,31 @@
+<meta http-equiv="Content-Type" content="text/html; charset={$lang.charset}" />
+<link href="{$conf.url}/templates/{$conf.template}/css/admin/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{$conf.url}/js/system.js"></script>
+<!-- 左侧菜单 -->
+<div id="menu">
+<dl>
+<dt>客服中心</dt>
+<span id="menubox0">
+<dd><a href="monitor.php" target="I2">接通客户</a></dd>
+<dd><a href="chatlist.php" target="I2">交谈记录</a></dd>
+</span>
+</dl>
+
+{if $ifadmin=='1'}<dl>
+<dt>系统管理</dt>
+<span id="menubox0">
+<dd><a href="system.php?action=systeminfo" target="I2">系统配置</a></dd>
+<dd><a class="no" href="index.php?action=clearcache" target="I5">{if $clear_cache}{$clear_cache}{else}更新缓存{/if}</a></dd>
+<dd><a href="system.php?action=departments" target="I2">部门管理</a></dd>
+<dd><a href="system.php?action=operators" target="I2">客服管理</a></dd>
+<dd><a href="system.php?action=assigns" target="I2">任务管理</a></dd>
+</span>
+</dl>{/if}
+
+<dl>
+<dt>个人管理</dt>
+<span id="menubox0">
+<dd><a href="details.php" target="I2">资料修改</a></dd>
+</span>
+</dl>
+</div>

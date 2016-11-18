@@ -1,0 +1,198 @@
+{template 'header_i.html'}
+<div class="blank30"></div>
+
+{tag_首页第一行栏目名称}
+
+<div class="container">
+	<div id="owl-demo" class="owl-carousel">
+	{tag_首页第一行滚动图片}
+	</div>
+</div>
+<script src="{$skin_path}/js/owl.carousel.min.js"></script> 
+<script>
+    $(document).ready(function() {
+      $("#owl-demo").owlCarousel({
+        items : 4,
+        lazyLoad : true,
+        navigation : true
+      });
+
+    });
+</script> 
+
+
+
+<div class="blank30"></div>
+
+
+<div class="bg_1 pa5 mb30 index-2">
+
+
+{tag_首页第二行栏目名称}
+
+
+
+<div class="container">
+
+<script type="text/javascript">
+function tab_m(obj,name)
+{
+var p = obj.parentNode.getElementsByTagName("li");
+var p1 = document.getElementById(name).getElementsByTagName("div");
+for(i=0;i<p1.length;i++)
+{
+if(obj==p[i])
+{
+p[i].className = "s";
+p1[i].className = "dis";
+}
+else
+{
+p[i].className = "#";
+p1[i].className = "undis";
+}
+}
+}
+</script>
+
+
+{tag_首页第二行栏目图文翻页3条}
+
+<div class="clear"></div>
+
+<div class="row list_1">
+	{tag_首页第二行内容八条列表}
+</div>
+
+
+
+
+<div class="blank30"></div>
+</div>
+<!-- w_set -->
+</div>
+</div>
+
+
+
+
+
+
+
+{tag_首页第三行栏目名称}
+
+
+
+
+
+<div class="container pa20">
+
+<div class="i_about">
+
+	{tag_首页第三行栏目图片说明}
+
+	<div class="i_about_text_pic">
+		<div class="row">
+		{tag_首页第三行子栏目图片说明一}
+		{tag_首页第三行子栏目图片说明二}
+		{tag_首页第三行子栏目图片说明三}
+		</div>
+	</div>
+</div>
+
+</div>
+
+
+
+
+
+{tag_首页第四行栏目名称}
+<div class="blank30"></div>
+<div class="container index4" style="z-index:7; position:relative; ">
+	<div class="col-md-4 col-sm-6">
+		<dl class="ico_tel">
+			<dt>{lang(tel)}</dt>
+			<dd>{get(tel)}</dd>
+			</dl>
+		<dl class="ico_qq">
+			<dt>{lang(leftservers)}</dt>
+			<dd>
+				{if config::get('qq1')}<a rel="nofollow" href="http://wpa.qq.com/msgrd?v=3&uin={get(qq1)}&site=qq&menu=yes" target="_blank">{get(qq1name)}</a>{/if}
+				{if config::get('qq2')}<a rel="nofollow" href="http://wpa.qq.com/msgrd?v=3&uin={get(qq2)}&site=qq&menu=yes" target="_blank">{get(qq2name)}</a>{/if}
+				{if config::get('qq3')}<a rel="nofollow" href="http://wpa.qq.com/msgrd?v=3&uin={get(qq3)}&site=qq&menu=yes" target="_blank">{get(qq3name)}</a>{/if}
+				{if config::get('qq4')}<a rel="nofollow" href="http://wpa.qq.com/msgrd?v=3&uin={get(qq4)}&site=qq&menu=yes" target="_blank">{get(qq4name)}</a>{/if}
+				{if config::get('qq5')}<a rel="nofollow" href="http://wpa.qq.com/msgrd?v=3&uin={get(qq5)}&site=qq&menu=yes" target="_blank">{get(qq5name)}</a>{/if}
+				<div class="clear"></div>
+			</dd>
+		</dl>
+			<dl class="ico_add">
+			<div class="blank20"></div>
+			<dt>{lang(address)}</dt>
+			<dd>
+			{get(address)}
+			</dd>
+		</dl>
+		<dl class="ico_weixin">
+			<dt>{lang(attention)}{lang(official)}{lang(wechat)}</dt>
+			<dd>
+				<br>
+				<br>
+				<img src="{get(weixin_pic)}" width="170" onerror='this.src="{config::get('onerror_pic')}"' />
+			</dd>
+		</dl>
+	</div>
+	<div class="col-md-4 col-sm-6">
+		<h3 class="t_3">{tag_首页第四行栏目中间名称}</h3>
+		<ul class="list_2">
+		{tag_首页第四行中间内容七条列表}
+		</ul>
+		<div class="blank30"></div>
+		<div class="vote">
+			{ballot(1)}
+		</div>
+	</div>
+	<div class="clearfix visible-xs-block"></div>
+	<div class="col-md-4">
+		<h3 class="t_3"><a rel="nofollow" title="{lang(feedback)}" href="{url('guestbook')}" target="_blank">{lang(foot_guestbook_hello)}</a></h3>
+		<div class="blank10"></div>
+		{callGuestbook()}
+	</div>
+</div>
+
+
+
+
+
+
+
+
+<div class="title">
+	<div class="container">
+	<h3>{lang(links)}</h3>
+	<p>links</p>
+	</div>
+</div>
+
+
+
+
+
+<dl class="container">
+	<dd class="f_link">
+		{loop friendlink('image',0,24) $flink}
+		<a href="{$flink[url]}" title="{$flink[name]}"><img src="{$flink[logo]}"  width="88" height="31" /></a>
+		{/loop}
+	</dd>
+	<dd class="f_link">
+		{loop friendlink('text',0,24) $flink}
+		<a href="{$flink[url]}" target="_blank">{$flink[name]}</a>
+		{/loop}
+	</dd>
+</dl>
+
+
+
+<div class="blank30"></div>
+
+
+{template 'footer_i.html'}

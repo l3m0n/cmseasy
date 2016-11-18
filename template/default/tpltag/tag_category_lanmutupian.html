@@ -1,0 +1,14 @@
+{loop plugins::categoryinfo($_catid) $c}
+
+
+	<div class="i_about_banner">
+		<center><a href="{$c[url]}" title="{$c[name]}"><img src="{$c[image]}"   alt="{$c[name]}" /></a></center>
+	</div>
+	
+	<div class="i_about_text">
+		<p>
+			{cut(strip_tags($c['categorycontent']),200)}
+		</p>
+	</div>
+
+{/loop}

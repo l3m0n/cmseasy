@@ -1,0 +1,25 @@
+
+<div class="blank10"></div>
+
+<a href="javascript:history.back(-1)" class="btn">{lang(backuppage)}</a>
+</div>
+<div class="blank10"></div>
+
+<div class="blank10"></div><div class="blank10"></div>
+<div id="copyright">Copyright &copy;  <?php echo get('sitename');?>
+<div class="blank10"></div>
+Powered by <a href="http://www.cmseasy.cn" title="CmsEasy企业网站系统" target="_blank">CmsEasy</a>
+</div>
+{if config::get('wap_foot_nav')=='1'}
+{template 'foot_nav_b.html'}
+{elseif config::get('wap_foot_nav')=='2'}
+{template 'foot_nav_c.html'}
+{else}
+{template 'foot_nav_a.html'}
+{/if} 
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

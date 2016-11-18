@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$lang.charset}" />
+<link href="{$conf.url}/templates/{$conf.template}/css/admin/admin.css" rel="stylesheet" type="text/css" />
+<link href="{$conf.url}/templates/{$conf.template}/editor/jquery.wysiwyg.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{$conf.url}/templates/{$conf.template}/editor/jquery-1.3.2.js"></script>
+<script type="text/javascript" src="{$conf.url}/templates/{$conf.template}/editor/jquery.wysiwyg.js"></script>
+{literal} 
+<script type="text/javascript">
+  $(function()
+  {
+      $('#companyinfos').wysiwyg();
+  });
+</script>
+
+<style type="text/css">
+
+body {background:white;}
+#info {padding:10px;}
+</style>
+{/literal}
+</head>
+<body>
+
+<div id="info">
+
+
+  {if $ifadmin=='1'}  
+  {if $companyinfos}
+
+  <form action="system.php?action=companyinfos" method="post" name="companyinfos1">
+   <div class="blank30"></div>        
+   <textarea name="companyinfos" id="companyinfos" rows="10" cols="70">{$conf.companyinfos}</textarea>   
+  {$c_up_sys_success}<input type="hidden" name="_companyinfos" value="_companyinfos" /><input type="submit" name="submit" value="保存" />    
+  </form>
+   {/if}
+  {if $system}
+  <div class="tags">
+<div id="tagstitle">
+   <a id="one1" onclick="setTab('one',1,6)" class="hover">客服系统配置</a>
+  </div> 
+  <div id="tagscontent">
+    <div id="con_one_1">
+  <form action="system.php?action=systeminfo" method="post" name="systeminfo">
+  <table cellspaing="0" cellpadding="3" class="border" cellpadding="4" class="list" name="table" id="table" width="100%">
+    <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <td width="11%" align="right"><strong>{$lang.url}:</strong></td>
+<td width="1%">&nbsp;</td>
+           <td width="80%">
+<input type="text" name="url" value="{$conf.url}" size="30" /></td>
+    </tr>
+
+    <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <td width="11%" align="right"><strong>{$lang.company_name}:</strong></td>
+<td width="1%">&nbsp;</td>
+           <td width="80%"><input type="text" name="company" value="{$conf.company}" size="20" /></td>
+    </tr>
+     <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <td width="11%" align="right"><strong>{$lang.if_customer_info}:</strong></td>
+<td width="1%">&nbsp;</td>
+           <td width="80%">
+      <select name="customer_info">           
+          <option value="1" {if $conf.customer_info==true}selected="selected"{/if}>是</option>
+          <option value="0" {if $conf.customer_info==false}selected="selected"{/if}>否</option> 
+        </select>
+      </td>
+    </tr>
+    <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <td width="11%" align="right"><strong>{$lang.tracker_refresh}:</strong></td>
+<td width="1%">&nbsp;</td>
+           <td width="80%"><input type="text" name="tracker_refresh" value="{$conf.tracker_refresh}" size="20" /></td>
+    </tr>
+    <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <td width="11%" align="right"><strong>{$lang.template}:</strong></td>
+<td width="1%">&nbsp;</td>
+           <td width="80%">
+        <select name="template">
+        {section name=i loop=$template}
+          <option value="{$template[i].dir}"{if $template[i].dir == $template_dir} selected="selected"{/if}>{$template[i].name}</option>
+        {/section}
+        </select>
+      </td>
+    </tr>
+    <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <td width="11%" align="right"><strong>{$lang.select_lang}:</strong></td>
+<td width="1%">&nbsp;</td>
+           <td width="80%">
+        <select name="language">
+        {section name=i loop=$language}
+          <option value="{$language[i].file}"{if $language[i].file == $lang_file} selected="selected"{/if}>{$language[i].name}</option>
+        {/section}
+        </select>
+      </td>
+    </tr>
+  </table>
+<div class="blank20"></div>
+  <input type="hidden" name="systeminfo" value="systeminfo" /><input class="button" type="submit" name="submit" value="{$lang.submit}" />
+<div class="blank20"></div>
+</form>
+</div></div></div>
+    {/if}
+    {if $departments}
+	  <div class="tags">
+<div id="tagstitle">
+   <a id="one1" onclick="setTab('one',1,6)" class="hover">客服部门配置</a>
+  </div> 
+  <div id="tagscontent">
+    <div id="con_one_1">
+         <form action="system.php?action=departments" method="post" name="departments">
+  <table cellspaing="0" cellpadding="3" class="border" class="list" name="table" id="table" width="100%">
+    <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <td align="right" width="10%"><strong>部门名称：</strong></td>
+<td width="1%">&nbsp;</td>
+           <td width="80%"><input type="text" name="name" size="20" /> <input type="submit" name="add" value="添加" class="button" /><input type="hidden" name="do" value="add" /></td>
+    </tr>
+
+   
+     {$list}
+  </table>
+</form>
+</div></div></div>
+            {/if}
+       {if $operators}
+	     <div class="tags">
+<div id="tagstitle">
+   <a id="one1" onclick="setTab('one',1,6)" class="hover">添加系统客服</a>
+  </div> 
+  <div id="tagscontent">
+    <div id="con_one_1">
+         <form action="system.php?action=operators" method="post" name="operators">
+  <table cellspaing="0" cellpadding="1" class="border" class="list" name="table" id="table" width="100%">
+ 
+    <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <td align="right" width="10%"><strong>用户</strong></td>
+<td width="1%">&nbsp;</td>
+           <td width="80%"><input type="text" name="username" size="20" /></td>
+    </tr>
+    <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <td width="11%" align="right"><strong>密码</strong></strong></td>
+<td width="1%">&nbsp;</td>
+           <td width="80%"><input type="text" name="password" size="20" /></td>
+    </tr>
+    <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <td width="11%" align="right"><strong>姓名</strong></td>
+<td width="1%">&nbsp;</td>
+           <td width="80%"><input type="text" name="realname" size="20" /></td>
+    </tr>
+    <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <td width="11%" align="right"><strong>部门</strong></td>
+<td width="1%">&nbsp;</td>
+           <td width="80%"><select name="departmentid">
+        {$selectdname}
+      </select></td>
+    </tr>
+    <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <td width="11%" align="right"><strong>类型</strong></td>
+<td width="1%">&nbsp;</td>
+           <td width="80%"><select name="level">
+        <option value="0">管理</option>
+        <option value="1" selected="selected">客服</option>
+      </select></td>
+    </tr>
+	</table>
+
+<div class="blank20"></div>
+    <input type="submit" name="add" class="button" value="添加" /><input type="hidden" name="do" value="add" />
+<div class="blank20"></div>
+
+客服列表
+   <table cellpadding="1" class="border" class="list" name="table" id="table" width="100%">
+ 
+    <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <th align="right" width="11%"><strong>姓名</strong></th>
+<th width="11%">登录名</th>
+<th width="11%">部门</th>
+<th width="11%">职务</th>
+<th width="11%">状态</th>
+           <th width="60%" style="text-align:left;">&nbsp;&nbsp;&nbsp;&nbsp;操作 {$isadmin}</th>
+    </tr>
+     {$list}
+  </table>
+
+</form>
+</div>
+</div>
+</div>
+
+            {/if}
+      {if $assigns}
+         <div class="tags">
+<div id="tagstitle">
+<a id="one1" onclick="setTab('one',1,6)" class="hover">客服任务分配</a>
+</div> 
+<div id="tagscontent">
+<div id="con_one_1">
+  <table cellspaing="0" cellpadding="3" class="border" class="list" name="table" id="table" width="100%">
+
+    <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <td width="11%" align="right"></td>
+      <td width="1%" align="right"></td>
+      <td align="left"></td>
+    </tr>   
+     {$list}
+  </table>
+</div>
+</div>
+</div>
+            {/if}
+      {if $createcode}
+	  <div class="tags">
+<div id="tagstitle">
+   <a id="one1" onclick="setTab('one',1,6)" class="hover">客服代码生成</a>
+  </div> 
+  <div id="tagscontent">
+    <div id="con_one_1">
+ <form action="system.php?action=createcode" method="post" name="createcode">        
+  <table cellspaing="0" cellpadding="3" class="border" name="table" id="table" width="100%">
+    <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <td align="right" width="10%"><strong>选择部门：</strong></td>
+<td width="1%">&nbsp;</td>
+           <td width="80%">
+      <select name="departmentid">
+        <option value="0">{$lang.all_departments}</option>
+        {section name='i' loop=$cel_departments}
+        <option value="{$cel_departments[i].id}"{if $departmentid == $cel_departments[i].id} selected="selected"{/if}>{$cel_departments[i].name}</option>
+        {/section}
+      </select>
+      <select name="ifimages">
+        <option value="0">{$lang.createcode_mode}</option>
+        <option value="images" {if $mode=='images'}selected="selected"{/if}>{$lang.createcode_mode_images}</option>
+        <option value="text" {if $mode=='text'}selected="selected"{/if}>{$lang.createcode_mode_text}</option>
+      </select>
+	  </td>
+	  </tr>
+	  <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+	  <td width="11%" align="right"><strong>QQ客服号码：</strong></td>
+<td width="1%">&nbsp;</td>
+           <td width="80%"><input type="text" name="qq" value="" size="30" />(示例:123456,100086)</td>
+    </tr>
+    <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <td width="11%" align="right"><strong></strong></td>
+<td width="1%">&nbsp;</td>
+           <td width="80%"><div class="blank20"></div>
+    <input type="submit" class="button" name="submit" value="{$lang.generate_code}">
+    <div class="blank20"></div></td>
+    </tr> 
+    <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <td width="11%" align="right"><strong></strong></td>
+<td width="1%">&nbsp;</td>
+           <td width="80%">
+      {if $departmentid !== ''}
+
+<textarea name="all" cols="50" rows="5" id="all">
+<!-- BEGIN CmsEasy Live Code, Copyright (c) 2009 CmsEasy.cn. All Rights Reserved -->
+<script type="text/javascript" language="javascript" src="{$conf.url}/js/include.php?cmseasylive{if $mode == 'text'}&text{/if}{if $departmentid !== '0'}&departmentid={$departmentid}{/if}{if $qq !== ''}&qq={$qq}{/if}"></script>
+<!-- END CmsEasy Live Code, Copyright (c) 2009 CmsEasy.cn. All Rights Reserved -->
+</textarea>
+
+{/if}
+</td>
+    </tr>
+    
+    <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <td width="11%" align="right"><strong>图片模式：</strong></td>
+<td width="1%">&nbsp;</td>
+           <td width="80%"><a href="{$conf.url}/js/imageModeDemo.html" target="_blank">查看演示</a></td>
+    </tr> 
+    <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <td width="11%" align="right"><strong>文字模式：</td>
+<td width="1%">&nbsp;</td>
+           <td width="80%">
+      <!-- BEGIN CmsEasy Live Code, Copyright (c) 2009 CmsEasy.cn. All Rights Reserved -->
+<script type="text/javascript" language="javascript" src="{$conf.url}/js/include.php?cmseasylive&text"></script>
+<!-- END CmsEasy Live Code, Copyright (c) 2009 CmsEasy.cn. All Rights Reserved -->
+
+</td>
+    </tr>   
+
+   <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+      <td width="11%" align="right"><strong></td>
+      <td align="left"></td>
+    </tr>
+    
+  </table>
+  </form>
+  </div></div></div>
+  {/if}
+{/if}
+</div>
+</div>
+</body>
+</html>

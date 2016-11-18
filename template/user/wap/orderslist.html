@@ -1,0 +1,80 @@
+{template 'head.html'}
+<div class="blank10"></div>
+<style type="text/css">
+/*表格*/
+table {font-size:12px; }
+table th {height:30px; line-height:30px; background:#FAFAFA url({$skin_path}/images/orders/th_line.gif) center right no-repeat;  color:#8C8C8C; font-size:12px; font-weight:normal; }
+table td {line-height:30px; vertical-align:middle;}
+table.o_list tr { border-bottom:1px solid #DFDFDF;}
+table.o_list tr.th {border:none;}
+table.o_list input {text-align:center;}
+.view {display:block; width:31px;height:30px;background:url({$skin_path}/wap/images/user/view_on.gif) left center no-repeat;}
+.view:hover {background:url(images/user/view_hover.gif) left top no-repeat;}
+
+tr:hover {background-color:#FFC;}
+</style>
+
+<!-- 页面标题开始 -->
+<div class="t_1 wow bounceIn">
+<div>
+<h3>{lang(vieworders)}</h3>
+<p>View Orders</p>
+</div>
+</div>
+
+<div class="p10">
+
+<script type="text/javascript" src="{$base_url}/common/js/list.js"></script>
+<script language="javascript" src="{$base_url}/common/js/common.js"></script>
+
+
+<form name="listform" id="listform"  action="<?php echo uri();?>" method="post">
+
+   <table border="0" cellspacing="1" cellpadding="4" name="table" id="table" width="100%"> 
+        <thead>
+            <tr>
+                <th align="center">{lang(productname)}</th>
+               
+                <th align="center">{lang(orderstatus)}</th>               
+                 <th align="center" style="background-image:none;">{lang(look)}</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            {loop $data $d}
+<?php
+if($d['status']==1){
+	$d['status']='<font color="green">完成</font>';
+}elseif($d['status']==0){
+	$d['status']='<font color="red">新订单</font>';
+}elseif($d['status']==2){
+	$d['status']='<font color="blue">处理中</font>';
+} 
+?>
+            <tr class="s_out" onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+<!-- {cut($d['oid'])} -->
+                <td align="center">{getArchiveTitle($d['aid'])}</td>
+                <td align="center">{$d['status']}</td>
+                <td align="center" >
+<a href='<?php echo url("archive/orders/oid/".$d['oid'],false);?>' target="_blank" class="view"></a>             
+                </td>
+            </tr>
+            {/loop}
+
+
+        </tbody>
+    </table>
+
+
+    <div class="blank10"></div>
+   
+
+</form>
+<div class="blank30"></div>
+<div class="blank30"></div>
+<div class="pages">
+<?php if(get('table')!='type' && front::get('case')!='field') echo pagination::html($record_count); ?>
+</div>
+<div class="blank10"></div>
+<div class="blank10"></div>
+{template 'foot.html'}

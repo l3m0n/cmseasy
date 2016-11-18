@@ -1,0 +1,49 @@
+
+<div class="blank20"></div>
+<div class="blank20 "></div>
+
+<style type="text/css">
+/*底部导航*/
+.foot_mp{ clear:both; padding:5px 0px; text-align:center; position:fixed; bottom:0; left:0; width:100%;}
+.foot_mp a{ text-align:center; display:inline-block; width:18%; max-width:100px; color:#F2F2F2;text-decoration: none; font-size:0.75em; font-weight:normal;}
+.foot_mp a:hover{
+	color: #FFF;
+	text-decoration: none;
+}
+/*/底部导航*/
+.ico_p,.ico_m,.ico_l,.ico_f,.ico_g{
+	background: url({$skin_path}/images/base/ico_p.png) no-repeat center top;
+	padding-top: 50%;
+	font-size: 1.0em;
+	color: #A29A8F;
+	text-align: center;
+	display: block;
+}
+.ico_m{background: url({$skin_path}/images/base/ico_m.png) no-repeat center top; }
+.ico_l{background: url({$skin_path}/images/base/ico_l.png) no-repeat center top; }
+.ico_f{background: url({$skin_path}/images/base/ico_f.png) no-repeat center top; }
+.ico_g{background: url({$skin_path}/images/base/ico_g.png) no-repeat center top; }
+.ico_p,.ico_m,.ico_l,.ico_f,.ico_g{background-size: 50%;}
+
+/*分享*/
+#fenxiang_box{position:fixed; bottom:70px;width:80%;background-color:#FFF; border:1px solid #DDD; padding:30px 10%; }
+#fenxiang_box .bdsharebuttonbox{ padding:10px 0;}
+#btn_fenxiang{ }
+#btn_fenxiang span{ display:none;}
+#fenxiang_box{ display:none;  }
+/*分享*/
+</style>
+<!--foot_m-->
+	<footer class="foot_mp mp_show">
+<a href="tel:{get(tel)}"><i class="ico_p"></i><b>{lang(tel)}</b></a>
+<a href="sms:{get(site_mobile)}"><i class="ico_l"></i><b>{lang(sms)}</b></a>
+<a href="{$base_url}/wap"><i class="ico_m"></i><b>{lang(home)}</b></a>
+<a href="javascript:;" id="btn_fenxiang"><i class="ico_f"></i><b>{lang(share)}</b></a>
+<a href="{$base_url}/index.php?case=guestbook&act=index"><i class="ico_g"></i><b>{lang(feedback)}</b></a>
+</footer>
+	<!--/foot_m-->
+	<div id="fenxiang_box" class="mp_show">
+	<h3>分享到：</h3>
+	<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+	<script src="{$skin_path}/js/fenxiang.js" type="text/javascript" ></script><!--用于分享按钮--><script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":["qzone","bdysc","renren","tieba","sqq","thx","copy"],"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+	</div>

@@ -1,0 +1,91 @@
+{template 'head.html'}
+
+<div class="t_1 wow bounceIn">
+<div>
+<h3>{lang(memeberinfo)}</h3>
+<p>Member Info</p>
+</div>
+</div>
+
+<div class="p10">
+
+<style type="text/css">
+td {line-height:38px;}
+tr {border-bottom:1px dotted #ccc;}
+td.left {width:100px;}
+</style>
+
+
+<table width="100%"  border="1" align="center" cellpadding="8" cellspacing="0" bordercolor="#CCCCCC" style="border-collapse:collapse;">
+<tbody>
+<tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+<td align="right" class="left">ID：</td>
+<td>{$user[userid]}</td>
+</tr>
+
+<tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+<td align="right" class="left">{lang(username)}：</td>
+<td align="left">{$user[username]}</td>
+</tr>
+
+<tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+<td align="right" class="left">{lang(question)}：</td>
+<td align="left">{$user[question]}</td>
+</tr>
+
+<tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+<td align="right" class="left">{lang(answer)}：</td>
+<td align="left">{$user[answer]}</td>
+</tr>
+
+<tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+<td align="right" class="left">{lang(tel)}：</td>
+<td align="left">{$user[tel]}</td>
+</tr>
+
+<tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+<td align="right" class="left">{lang(e_mail)}：</td>
+<td align="left">{$user[e_mail]}：</td>
+</tr>
+
+<tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+<td align="right" class="left">{lang(address)}：</td>
+<td align="left">{$user[address]}</td>
+</tr>
+
+<tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+<td align="right" class="left">{lang(qq)}：</td>
+<td align="left">{$user[qq]}</td>
+</tr>
+
+<tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+<td align="right" class="left">{lang(intro)}：</td>
+<td align="left">&nbsp;{$user[intro]}</td>
+</tr>
+ {loop $field $f}
+            <?php
+            $name=$f['name'];
+            if(!preg_match('/^my_/',$name)) {
+            unset($field[$name]);
+            continue;
+            }
+            if(!isset($data[$name])) $data[$name]='';
+            ?>
+            <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+                <td align="right" class="left"><?php echo setting::$var['user'][$name]['cname']; ?>：</td>
+                <td align="left">
+                    <?php echo $data[$name];?>
+                </td>
+            </tr>
+            {/loop}
+          <tr onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+<td align="right" class="left">{lang('quick-login')}：</td>
+<td align="left"><?php if($user['qqlogin']){echo '{lang(has-opened-QQ-quick-login)}';}?> <?php if($user['alipaylogin']){echo '{lang(alipay-has-opened-a-quick-login)}';}?></td>
+</tr>  
+      </tbody>
+    </table>
+    
+<div class="blank30"></div>
+<div class="blank30"></div>
+
+{template 'foot.html'}

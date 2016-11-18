@@ -1,0 +1,4 @@
+{loop plugins::categoryinfo($_catid) $cat}
+<h3 class="wow bounceInDown" data-wow-delay="0.5s"><a href="{$cat[url]}">{$cat[catname]} & <small>{$cat[htmldir]}</small></a></h3>
+<p class="wow bounceIn" data-wow-delay="0.5s">{$cat[subtitle]}</p>
+{/loop}

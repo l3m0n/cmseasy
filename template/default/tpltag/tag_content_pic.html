@@ -1,0 +1,4 @@
+{loop archive($_catid,$_typeid,$_spid,$_area,$_length,$_ordertype,$_limit,$_image,$_attr1,$_son,$_wheretype,$_tpl,$_intro_len,$_istop) $archive}
+<div class="new_tj"><div class="news_pic"><img alt="{$archive['stitle']}" src="{$archive['thumb']}" onerror='this.src="{config::get('onerror_pic')}"' /></div><div class="p1"><span class="lanwd12c"><a style="color:{$arc[color]};" href="{$archive[url]}" title="{$archive[stitle]}">{$archive[title]}</a></span><br />
+{$archive[intro]}</div></div>
+{/loop}

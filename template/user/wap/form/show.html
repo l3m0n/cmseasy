@@ -1,0 +1,17 @@
+{template 'header.html'}
+
+<div class="box left">
+    {template 'left.html'}
+</div>
+
+<div class="box right">
+
+{loop $data $key $value}
+<li>{$key} : {$value}
+{/loop}
+
+<a href="{url('/form/list/form/'.get('form'))}">{lang('backuppage')}</a>
+
+</div>
+
+{template 'footer.html'}

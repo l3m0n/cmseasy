@@ -1,0 +1,115 @@
+{template 'header.html'}
+
+
+<div class="blank10"></div>
+
+<!-- 页面标题开始 -->
+<div class="t_1 wow bounceIn">
+<div>
+<h3>{lang(user)}{lang(login)}</h3>
+<p>User Login</p>
+</div>
+</div>
+
+<div class="p10">
+
+<script type="text/javascript" LANGUAGE="javascript">
+<!--
+
+function check()
+            {
+                if(document.loginform.username.value.length==0){
+                    alert("{lang(please_enter_your user name)}");
+                    document.loginform.username.focus();
+                    return false;
+                }
+
+                if(document.loginform.password.value.length==0){
+                    alert("{lang(please_set_a_password)}");
+                    document.loginform.password.focus();
+                    return false;
+                }
+
+                if(document.loginform.password2.value.length==0){
+                    alert("{lang(enter_confirm_password)}");
+                    document.loginform.password2.focus();
+                    return false;
+                }
+
+                if(document.loginform.aquestion.value.length==0){
+                    alert("{lang(set_security)}");
+                    document.loginform.aquestion.focus();
+                    return false;
+                }
+
+                if(document.loginform.question.value.length==0){
+                    alert("{lang(please_set_the_security_answer)}");
+                    document.loginform.question.focus();
+                    return false;
+                }
+
+                if(document.loginform.answer.value.length==0){
+                    alert("{lang(please_enter_the_custom_security_answer)}");
+                    document.loginform.answer.focus();
+                    return false;
+                }
+                if(document.loginform.verify.value.length==0){
+                    alert("{lang(enter)}{lang(verifycode)}!");
+                    document.loginform.verify.focus();
+                    return false;
+                }
+
+
+            }
+//-->
+</script>
+
+<?php if(!get('submit')){ flash();?>
+<form id="login_form" name="loginform" method="post"  action="<?php echo url('user/dialog_login');?>" onsubmit="return check();">
+<input type='hidden' id="from"  name="from" value="<?php echo get('from')? get('from'):front::$from;?>"/>
+     <input type="submit" name="submit" value=" " class="button" tabindex="4" />
+     <input name="username" type="text" id="username" value="{lang('username')}" class="input" tabindex="1" onfocus="this.className='input_on';this.onmouseout='';this.value=''" onblur="this.className='input_off';this.onmouseout=function(){this.className='input_out'};" onmousemove="this.className='input_move'" onmouseout="this.className='input_out'" onMouseOver="this.focus()" onblur="if (this.value ==''){this.value=this.defaultValue}" onFocus="this.select()" onClick="if(this.value==this.defaultValue)this.value=''" />
+     <input name="password" type="password" id="password" value="{lang('password')}" tabindex="2" class="input" onfocus="this.className='input_on';this.onmouseout='';this.value=''" onblur="this.className='input_off';this.onmouseout=function(){this.className='input_out'};" onmousemove="this.className='input_move'"  onmouseout="this.className='input_out'" onMouseOver="this.focus()" onblur="if (this.value ==''){this.value=this.defaultValue}" onFocus="this.select()" onClick="if(this.value==this.defaultValue)this.value=''" />
+
+	 <div class="clear"></div>
+<div style="float:left;margin-right:20px;">
+{if config::get('verifycode')=='1'}  
+<div id="verifycode_embed"></div>
+<script src="http://api.geetest.com/get.php"></script>
+<script>
+var loadGeetest = function(config) {
+	window.gt_captcha_obj = new window.Geetest({
+		gt : config.gt,
+		challenge : config.challenge,
+		product : 'float',
+		offline : !config.success
+	});
+	gt_captcha_obj.appendTo("#verifycode_embed");
+};
+
+$.ajax({
+	url : '{url('tool/geetest',0)}',
+	type : "get",
+	dataType : 'JSON',
+	success : function(result) {
+		//console.log(result);
+		loadGeetest(result)
+	}
+});
+</script>
+{/if}
+</div>
+<input name="verify" type="text" id="verify" value="{lang(verifycode)}" tabindex="3" class="input-code" onfocus="this.className='input-code_on';this.onmouseout='';this.value=''" onblur="this.className='input-code_off';this.onmouseout=function(){this.className='input-code_out'};" onmousemove="this.className='input-code_move'"  onmouseout="this.className='input-code_out'" onMouseOver="this.focus()" onblur="if (this.value ==''){this.value=this.defaultValue}" onFocus="this.select()" onClick="if(this.value==this.defaultValue)this.value=''" />
+  </form>
+ <?php }else{ if(get('submit')) {
+	  if(hasflash()) {
+	      echo '<span style="color:red;font-weight:bold;"><br />';
+		  echo flash().'</span>';}else{echo '<div style="color:green;font-weight:bold; text-align:center"><br />{lang('loginsuccess')}，<a href="'.url('user/index').'" target="_blank">{lang('membercenter')}</a>。</div>';}}}?>
+          <div class="clear"></div>
+<div class="clear"></div>
+</div>
+
+<div class="blank30"></div>
+</div>
+
+{template 'footer.html'}

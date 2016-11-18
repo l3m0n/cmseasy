@@ -1,0 +1,68 @@
+
+{if vote::title($aid,1)}
+
+<!-- 页面标题开始 -->
+<div class="t_1 wow bounceIn">
+<div>
+<h3>{lang(vote)}</h3>
+<p>Vote</p>
+</div>
+</div>
+<form name="voteform" method="post" action="<?php echo url('vote/do'); ?>">
+    <input type="hidden" name="aid" value="{$aid}"/>
+
+     
+            {if !vote::voted($aid,$user['username'])}
+		
+			
+ <div class="blank60"></div>
+			   <div id="content_vote" class="w_set">
+            <ul>
+                <?php $i=1; while(vote::title($aid,$i)) { ?>
+
+                <li>
+                   <span class="content-num"> {$i}</span> <span>{vote::title($aid,$i)}</span>
+                    {if vote::img($aid,$i)}
+                    <img src="{vote::img($aid,$i)}" width="60" class="vote_img" />
+                    {/if}
+                   <div class="optionba"> {=form::radio('vote',$i,0)} </div>
+				   <div class="clear">&nbsp;</div>
+                </li>
+
+                <?php $i++; } unset($i); ?>
+
+            </ul>
+ <div class="blank10"></div>
+
+            {form::submit()} 
+			</div>
+            {else}
+
+
+
+ <div class="blank60"></div>
+			   <div id="content_vote" class="w_set">
+            <ul>
+                
+                
+                <?php $i=1; while(vote::title($aid,$i)) { ?>
+
+                <li>
+                    <span class="content-num">{$i}</span> <span>{vote::title($aid,$i)}</span>
+                        {if vote::img($aid,$i)}
+                        <img src="{vote::img($aid,$i)}" width="60" />
+                        {/if}
+      
+                    <div class=optionbar><div style="width: {=vote::get($aid,$i)*3+5}px;"></div></div>
+                    {=vote::get($aid,$i)}
+                    <div class="clear">&nbsp;</div>
+                </li>
+
+                <?php $i++; } unset($i);?>
+
+            </ul>
+</div>
+            {/if}
+            
+</form>
+{/if}

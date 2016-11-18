@@ -1,0 +1,59 @@
+{template 'header.html'}
+<!-- 面包屑导航开始 -->
+{template 'position.html'}
+<!-- 面包屑导航结束 -->
+
+<style type="text/css">
+	.projectitem {width:33%;}
+	@media (max-width: 768px) {
+    .projectitem {width:auto;}
+	.list-container .col-md-2 {display:none;}
+	}
+</style>
+<!-- 中部开始 -->
+<div class="container list-container">
+	<div class="row">
+		<div class="col-md-3">
+			{template 'products_left.html'}
+		</div>
+
+		<div class="col-md-9">
+			<div class="row">
+				<div id="projectlist" class="masonry"  data-masonryitem=".projectitem">
+					<div class="wrapper">
+						{loop $archives $i $archive}
+						<div class="projectitem col-xs-12 col-sm-3 col-md-3">
+							<a href="{$archive['url']}" class="img-auto">
+								<img class="img-responsive" alt="{$archive['stitle']}" src="{$archive['thumb']}" onerror='this.src="{config::get('onerror_pic')}"' />				
+							</a>
+							<h4>{$archive['title']}</h4>
+							{if $archive['attr2']}
+							<p>{lang(price)}：<span>{$archive['attr2']}</span>{lang(unit)}</p>
+							{/if}
+						</div>
+						{/loop}
+					</div>
+				</div>
+			</div>
+			<!-- 内容列表分页开始 -->
+			{if isset($pages)}
+			<div class="blank30"></div>
+				{category_pagination($catid)}
+			<div class="blank30"></div>
+			{/if}
+			<!-- 内容列表分页结束 -->
+			</div>
+	</div><!-- /row -->
+</div><!-- /container -->
+<!-- /中部开始 -->
+
+<div class="blank30"></div>
+
+
+<!-- 页底推荐图文产品开始 -->
+{tag_内容页底图文产品三条}
+<!-- 页底推荐图文产品结束 -->
+
+<script src="{$skin_path}/js/min/lib.min.js"></script>
+<script src="{$skin_path}/js/min/org.js" data-main="baseMain"></script>
+{template 'footer.html'}

@@ -1,0 +1,72 @@
+{template 'head.html'}
+
+<div class="t_1 wow bounceIn">
+<div>
+<h3>{lang(listcontent)}</h3>
+<p>Content List</p>
+</div>
+</div>
+
+<div class="p10">
+
+<div class="blank10"></div>
+
+<form name="listform" id="listform"  action="<?php echo uri();?>" method="post">
+
+    <table border="0" cellspacing="1" cellpadding="4" class="list" name="table" id="table" width="100%" class="o_list"> 
+        <thead>
+            <tr>
+                <!--<th width="60" align="center">{lang(allselect)}<br /><input onclick="CheckAll(this.form)" type="checkbox" name="chkall" class="checkbox" /> </th>-->
+               <!-- <th align="center">{lang(order)}</th>-->
+                <th align="center"><!--aid-->{lang(id)}</th>
+                <th align="center"><!--catid-->{lang(category)}</th>
+                <th align="left"><!--title-->{lang(title)}</th>
+                <th align="center"><!--username-->{lang(author)}</th>
+                <th align="center"><!--view-->{lang(view)}</th>
+                <th align="center"><!--adddate-->{lang(adddate)}</th>
+                <th align="center"><!--checked-->{lang(checked)}</th>
+          
+                <th align="center">{lang(dosomething)}</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            {loop $data $d}
+            <tr class="s_out" onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+                <td align="center">{cut($d['aid'])}</td>
+                <td align="center"><a href="<?php echo url("archive/list/catid/".$d[catid],false);?>" target="_blank">{catname($d['catid'])}</a></td>
+                <td align="left">{cut($d['title'])}</td>
+                <td align="center">{cut($d['username'])}</td>
+                <td align="right">{cut($d['view'])}</td>
+                <td align="center">{cut($d['adddate'])}</td>
+                <td align="center">{helper::yes($d['checked'])}</td>
+
+                <td align="center">
+                    <a href='<?php if($d['linkto'])   echo $d['linkto']; else echo url("archive/show/aid/$d[$primary_key]",false);?>' target="_blank" >{lang(look)}</a>
+                    <a href="<?php echo modify("act/edit/manage/archive/id/$d[$primary_key]");?>">{lang(edits)}</a>
+                </td>
+            </tr>
+            {/loop}
+
+
+        </tbody>
+    </table>
+
+
+<div class="blank30"></div>
+
+    <input type="hidden" name="batch" value="">
+
+
+</form>
+<div class="blank10"></div>
+    <div class="blank10"></div>
+
+<div class="pages">
+<?php if(get('table')!='type' && front::get('case')!='field') echo pagination::html($record_count); ?>
+</div>
+<div class="blank10"></div>
+<div class="blank30"></div>
+<div class="blank30"></div>
+
+{template 'foot.html'}

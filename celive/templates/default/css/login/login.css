@@ -1,0 +1,38 @@
+
+html {
+  scrollbar-face-color : #F5F5F5;
+  scrollbar-arrow-color :#A0A0A0;
+  
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+img  {border: 0px;}
+* {
+    padding:0;
+    margin:0;
+    }
+	a {color:white;text-decoration:none;}
+body {background:#226FA3 url(login.jpg) center top no-repeat;}
+#login {width:788px;height:155px;margin:0px auto;padding:0px auto;font-size:12px;color:white;text-align:left;}
+
+.input {border:none;}
+
+#footer {
+position:absolute;
+	bottom:0;
+	z-index:99;
+	width:100%;
+	height:22px;
+	font-size:12px;
+	color:#9ED26D;
+	text-align:center;
+}
+#footer a {color:#9ED26D;}
+
+#username {width:210px;height:26px;line-height:26px;margin-bottom:12px; padding-left:30px;font-size:14px;font-weight:bold; background:url(username.gif) no-repeat;}
+#password {clear:both;width:210px;height:26px;line-height:26px;margin-bottom:22px; padding-left:30px; font-size:14px;font-weight:bold; background:url(password.gif) no-repeat;}
+#verify {width:80px; height:26px;margin-bottom:12px; font-size:14px;font-weight:bold; }
+
+.login {clear:both; width:110px;height:26px;line-height:26px;text-align:center; font-weight:bold; background:url(login.gif);border:none;color:white;}
+

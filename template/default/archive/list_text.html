@@ -1,0 +1,71 @@
+{template 'header.html'}
+<!-- 面包屑导航开始 -->
+{template 'position.html'}
+<!-- 面包屑导航结束 -->
+
+<!-- 页面标题开始 -->
+<div class="title">
+	<div class="container">
+	<h3>{$category[$catid][catname]}</h3>
+	<p>{$category[$catid][htmldir]}</p>
+	</div>
+</div>
+<!-- 页面标题结束 --
+
+
+
+<div class="blank30"></div>
+<!-- 中部开始 -->
+<div class="container">
+<div class="col-sm-9">
+
+<ul class="list_page_1">
+<!-- 内容列表开始 -->
+{loop $archives $i $archive}
+<li>
+<div class="list_page_date">
+<span>{=sdate($archive[adddate],'d')}</span>
+<p>{=sdate($archive[adddate],'Y-m')}</p>
+</div>
+<div class="li_text">
+<p><a title="{$archive[stitle]}" href="{$archive[url]}" target="_blank" class="list_page_t">{$archive[title]}</a></p>
+<p>{cut(strip_tags($archive['introduce']),60)}… <a href="{$archive[url]}" target="_blank">[{lang(more)}]</a></p>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</li>
+{/loop}
+<!-- 内容列表结束 -->
+</ul>
+<div class="blank30"></div>
+
+<!-- 内容列表分页开始 -->
+{if isset($pages)}
+<div class="blank30"></div>
+{category_pagination($catid)}
+<div class="blank30"></div>
+{/if}
+<!-- 内容列表分页结束 -->
+
+</div>
+
+
+
+<div class="col-sm-3">
+
+<h3 class="t_3">{tag_内页右侧栏目名称}</h3>
+<ul class="list_2">
+{tag_内页右侧内容列表}
+</ul>
+
+
+</div>
+
+</div>
+
+<div class="blank30"></div>
+<!-- 页底推荐图文产品开始 -->
+{tag_内容页底图文产品三条}
+<!-- 页底推荐图文产品结束 -->
+
+{template 'footer.html'}

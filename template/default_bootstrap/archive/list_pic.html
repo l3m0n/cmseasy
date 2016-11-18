@@ -1,0 +1,54 @@
+{template 'header.html'}
+<!-- 面包屑导航开始 -->
+{template 'position.html'}
+<!-- 面包屑导航结束 -->
+
+<!-- 页面标题开始 -->
+<div class="title">
+<h3 class="wow bounceInDown" data-wow-delay="0.5s"><a href="{$cat[url]}">{$category[$catid][catname]}<small>{$category[$catid][subtitle]}</small></a></h3>
+<p class="wow bounceIn" data-wow-delay="0.5s">{$category[$catid][description]}</p>
+<span>——</span>
+</div>
+<!-- 页面标题结束 -->
+
+<!-- 中部开始 -->
+<div class="clearfix"></div>
+	<div class="container-fluid">
+		<div class="row">
+		<div id="projectlist" class="masonry"  data-masonryitem=".projectitem">
+			<div class="wrapper">
+				{loop $archives $i $archive}
+				<div class="projectitem col-xs-12 col-sm-6 col-md-3">
+				<a href="{$archive['url']}" class="img-auto">
+				<img class="img-responsive" alt="{$archive['stitle']}" src="{$archive['thumb']}" onerror='this.src="{config::get('onerror_pic')}"' />
+				<h4>{$archive['title']}</h4>
+				</a>
+				</div>
+				{/loop}
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+
+	<div class="clearfix"></div>
+
+	<div class="container">
+	<!-- 内容列表分页开始 -->
+	{if isset($pages)}
+	{category_pagination($catid)}
+	{/if}
+	<!-- 内容列表分页结束 -->
+	</div>
+
+</div><!-- /container-fluid -->
+</div>
+<!-- 中部结束 -->
+
+
+<div class="blank60"></div>
+
+<script src="{$skin_path}/js/min/lib.min.js"></script>
+<script src="{$skin_path}/js/min/org.js" data-main="baseMain"></script>
+{template 'footer.html'}

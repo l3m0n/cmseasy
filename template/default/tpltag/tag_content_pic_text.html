@@ -1,0 +1,5 @@
+{loop archive($_catid,$_typeid,$_spid,$_area,$_length,$_ordertype,$_limit,$_image,$_attr1,$_son,$_wheretype,$_tpl,$_intro_len,$_istop) $archive}
+<a href="{$archive[url]}" class="text_img"><img alt="{$archive['stitle']}" src="{$archive['thumb']}" onerror='this.src="{config::get('onerror_pic')}"' /></a>
+<h5><a style="color:{$arc[color]};" href="{$archive[url]}" title="{$archive['stitle']}">{$archive[title]}</a></h5>
+<p>{$archive[intro]}</p>
+{/loop}

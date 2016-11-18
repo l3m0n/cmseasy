@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<link href="{$conf.url}/templates/{$conf.template}/css/celive.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{$conf.url}/js/jquery.js"></script>
+<title>{$conf.company} 企业在线客服平台 - Powered by CElive</title>
+{$xajax_live}
+{literal} 
+<script type="text/javascript">
+var CEl = function()
+{
+xajax_GetEndChat('{/literal}{$chatid}{literal}');
+xajax_AdminChatHistory('{/literal}{$chatid}{literal}');
+setTimeout(CEl, {/literal}{$conf.tracker_refresh}{literal});
+}
+CEl();
+function scolldown() 
+{ 
+var e=document.getElementById("ChatHistory");
+e.scrollTop=e.scrollHeight; 
+}
+</script>
+{/literal}
+</head>
+<body>
+
+<div id="left">
+<div style="padding:10px;margin-right:212px;">
+<div id="ChatHistory"></div>
+</div>
+</div>
+
+<div id="right">
+<p>{$lang.welcome_to_us_please_click}<a href="{$conf.url}/../index.php?case=guestbook&act=index" target="_blank" style="color:red;font-weight:bold;">{$lang.guest}</a>。 </p>
+<p class="blank10"></p>
+<p>访问者：{$name}</p>
+<p>邮箱:{$email}</p>
+<p>电话:{$phone}</p>
+<p>IP:{$ip}</p>
+<p>IP对于位置:{$area}</p>
+<div style="clear:both;"></div>
+</div>
+</body>
+</html>

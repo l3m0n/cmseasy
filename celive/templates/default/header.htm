@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7"> 
+<link href="{$conf.url}/templates/{$conf.template}/css/celive.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{$conf.url}/js/jquery.js"></script>
+<title>{$conf.company} {$lang.live_server} - Powered by CElive</title>
+{$xajax_live}
+{$ifexit}
+</head>
+<body onbeforeunload="chat_unload();">
+<div id="top">
+    <div class="top_left">
+       <div class="top_left1"><a href="http://www.cmseasy.cn"  target="_blank">CmsEasy&nbsp;Live&nbsp;V1.2.0</a></div>
+		   <div class="top_left2">{$lang.you_with_now} <strong>{$dname}-{$operatorname}</strong> {$lang.communication}	{$lang.consultative_content}</div>
+    </div>
+    <div class="top_right"><a  href="#" onClick="javascript:xajax_EndChat();"><img src="{$conf.url}/templates/{$conf.template}/images/close.gif" /></a></div>
+<div class="clear"></div>
+</div>
+</body>
+</html>

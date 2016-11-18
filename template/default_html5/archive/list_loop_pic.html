@@ -1,0 +1,48 @@
+{template 'header.html'}
+<!-- 面包屑导航开始 -->
+{template 'position.html'}
+<!-- 面包屑导航结束 -->
+
+
+{loop categories($catid) $i $t}
+
+<!-- 页面标题开始 -->
+<div class="title wow bounceIn">
+	<div class="container">
+	<h3><a title="{$t[catname]}" href="{category::url($t[catid])}">{$t['catname']}</a></h3>
+	<p>{$t['htmldir']}</p>
+	</div>
+</div>
+<!-- 页面标题结束 -->
+
+
+
+<div class="container wow fadeInUp">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="cp_info">
+					<p>{cut(strip_tags($t['categorycontent']),190)}</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+				{loop archive($t[catid],0,0,'0,0,0',20,'aid',3,false,0) $i $archive}
+				<div class="post-masonry col-sm-3 col-xs-6">
+				<a href="{$archive['url']}" class="img-auto">
+					<img class="img-responsive" alt="{$archive['stitle']}" src="{$archive['thumb']}"  onerror='this.src="{config::get('onerror_pic')}"' />
+					<h4>{$archive['title']}</h4>
+				</a>
+				</div>
+				{/loop}
+		</div>
+		<!-- list_cp -->
+	</div><!-- /row -->
+</div>
+
+<div class="blank30"></div>
+{/loop}
+
+</div>
+</div><div class="blank30"></div>
+<!-- 中部结束 -->
+{template 'footer.html'}

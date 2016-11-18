@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>CmsEasy Live - 安装程序</title>
+<meta http-equiv="Content-Type" content="text/html; charset={$lang.charset}" />
+<link href="../templates/{$conf.template}/css/install.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="body">
+  <div id="main">
+    <div id="logo"><a href="http://www.cmseasy.org" target="_blank">论坛</a>	| <a href="http://www.cmseasy.org/forum-10-1.html" target="_blank">报错</a> | <a href="http://www.cmseasy.org/forum-9-1.html" target="_blank">在线教程</a></div>
+
+	<div id="info">
+<div style="padding:5px;background:white;border:1px solid #4CAEDF;">
+{if $step == '1'}
+<form action="{$_SERVER.PHP_SELF}" method="post">
+
+  <table border="0" cellspacing="1" cellpadding="4" class="list" name="table" id="table" align="center" width="100%">
+    <tr class="dark">
+      <td colspan="2"><b>{$lang.step1}</b></td>
+    </tr>
+    <tr class="tips">
+      <td colspan="2"><!--{$lang.readme}-->
+      
+	  <div class="agreement">
+	  <div style="font-size:14px;text-align:center;font-weight:bold;">-= 阅读安装协议 =-</div>
+<div class="blank10"></div><div class="padding10">
+		<p>版权所有 (c)2008-2009，<a target="_blank" href="http://www.pown.net">九州易通科技有限公司</a> 保留所有权利。 </p>
+<p>感谢您选择CmsEasy内容管理系统（以下简称CmsEasy），CmsEasy是目前国内最强大、最稳定的中小型门户网站建设解决方案之一，基于 PHP + MySQL   的技术开发，全部源码开放。</p>
+<p>为了使你正确并合法的使用本软件，请你在使用前务必阅读清楚下面的协议条款：</p>
+<p>本授权协议适用且仅适用于 CmsEasy 1.0 版本，CmsEasy官方对本授权协议的最终解释权。</p>
+<strong> 一、协议许可的权利 </strong>
+<p>1、您可以在完全遵守本最终用户授权协议的基础上，将本软件应用于非商业用途，而不必支付软件版权授权费用。 </p>
+<p>2、您可以在协议规定的约束和限制范围内修改 CmsEasy 源代码或界面风格以适应您的网站要求。 </p>
+<p>3、您拥有使用本软件构建的网站全部内容所有权，并独立承担与这些内容的相关法律义务。 </p>
+<p>4、获得商业授权之后，您可以将本软件应用于商业用途，同时依据所购买的授权类型中确定的技术支持内容，自购买时刻起，在技术支持期限内拥有通过指定的方式获得指定范围内的技术支持服务。商业授权用户享有反映和提出意见的权力，相关意见将被作为首要考虑，但没有一定被采纳的承诺或保证。 </p>
+<strong>二、协议规定的约束和限制 </strong>
+<p>1、未获商业授权之前，不得将本软件用于商业用途（包括但不限于企业网站、经营性网站、以营利为目的或实现盈利的网站）。购买商业授权请联系<a target="_blank" href="http://www.pown.net">九州易通科技有限公司</a>了解最新说明。CmsEasy著作权已在中华人民共和国国家版权局注册(中国国家版权局著作权登记号 2009SR031147)，著作权受到法律和国际公约保护。</p>
+<p>2、未经官方许可，不得对本软件或与之关联的商业授权进行出租、出售、抵押或发放子许可证。</p>
+<p>3、不管你的网站是否整体使用 CmsEasy ，还是部份栏目使用 CmsEasy，在你使用了 CmsEasy 的网站主页上必须加上 CmsEasy   官方网址(<a target="_blank" href="http://www.cmseasy.cn">www.cmseasy.cn</a>)的链接。</p>
+<p>4、未经官方许可，禁止在 CmsEasy   的整体或任何部分基础上以发展任何派生版本、修改版本或第三方版本用于重新分发。</p>
+<p>5、如果您未能遵守本协议的条款，您的授权将被终止，所被许可的权利将被收回，并承担相应法律责任。 </p>
+<strong>三、有限担保和免责声明 </strong>
+<p>1、本软件及所附带的文件是作为不提供任何明确的或隐含的赔偿或担保的形式提供的。 </p>
+<p>2、用户出于自愿而使用本软件，您必须了解使用本软件的风险，在尚未购买产品技术服务之前，我们不承诺对免费用户提供任何形式的技术支持、使用担保，也不承担任何因使用本软件而产生问题的相关责任。 </p>
+<p>3、电子文本形式的授权协议如同双方书面签署的协议一样，具有完全的和等同的法律效力。您一旦开始确认本协议并安装   CmsEasy，即被视为完全理解并接受本协议的各项条款，在享有上述条款授予的权力的同时，受到相关的约束和限制。协议许可范围以外的行为，将直接违反本授权协议并构成侵权，我们有权随时终止授权，责令停止损害，并保留追究相关责任的权力。</p>
+<p>4、如果本软件带有其它软件的整合API示范例子包，这些文件版权不属于本软件官方，并且这些文件是没经过授权发布的，请参考相关软件的使用许可合法的使用。</p>
+<p>协议发布时间： 2008年12月27日</p>
+<p>版本最新更新： 2008年12月27日 By <a href="http://www.pown.net" target="_blank">九州易通科技有限公司</a></p>
+<p>CmsEasy官方网站：<a href="http://www.cmseasy.cn" target="_blank">www.cmseasy.cn</a></p>
+<p>CmsEasy演示站：<a href="http://demo.cmseasy.cn" target="_blank">demo.cmseasy.cn</a></p>
+<p>CmsEasy论坛：<a href="http://www.cmseay.org" target="_blank">www.cmseay.org</a></p>
+<p>本站律师：吉林常春律师所  王若威</p>
+  </div></div>
+      </td>
+    </tr>
+    <tr class="medium">
+      <td align="right">{$lang.select_lang}:</td>
+      <td class="left">
+      <select name="language">
+        {section name=i loop=$language}
+          <option value="{$language[i].file}"{if $language[i].file == $lang_file} selected="selected"{/if}>{$language[i].name}</option>
+        {/section}
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="hidden" name="one" value="one" /><input type="submit" name="submit" value="{$lang.submit}" class="button" /> <!--<input type="submit" name="skip" value="{$lang.skip}" />--></td>
+    </tr>
+  </table>
+
+</form>
+
+{elseif $step == '2'}
+<form action="{$_SERVER.PHP_SELF}" method="post" name="two">
+
+  <table border="0" cellspacing="1" cellpadding="4" class="list" name="table" id="table" align="center" width="100%">
+    <tr class="dark">
+      <td colspan="2"><b>{$lang.step2}</b></td>
+    </tr>
+  
+    <tr class="tips">
+      <td colspan="2">{$lang.config_chmod}</td>
+    </tr>
+    <tr class="medium">
+      <td colspan="2" align="left"><strong>{$lang.database}:</strong></td>
+    </tr>
+    <tr class="light">
+      <td align="right">{$lang.hostname}:</td>
+      <td class="left"><input type="text" name="host" value="localhost" size="20" /></td>
+    </tr>
+    <tr class="light">
+      <td align="right">{$lang.database}:</td>
+      <td class="left"><input type="text" name="database" value="" size="20" /></td>
+    </tr>
+    <tr class="light">
+      <td align="right">{$lang.db_username}:</td>
+      <td class="left"><input type="text" name="username" value="" size="20" /></td>
+    </tr>
+    <tr class="light">
+      <td align="right">{$lang.db_password}:</td>
+      <td class="left"><input type="password" name="password" value="" size="20" /></td>
+    </tr>
+    <tr class="light">
+      <td align="right">{$lang.prefix}:</td>
+      <td class="left"><input type="text" name="prefix" value="cel_" size="20" /></td>
+    </tr>
+    <tr class="medium">
+      <td colspan="2" align="left"><strong>{$lang.installation}:</strong></td>
+    </tr>
+    <tr class="light">
+      <td align="right">{$lang.url}:</td>
+      <td class="left"><input type="text" name="url" value="{$url}" size="30" /></td>
+    </tr>
+
+    <tr class="light">
+      <td align="right">{$lang.company_name}:</td>
+      <td class="left"><input type="text" name="company" value="CmsEasy" size="20" /></td>
+    </tr>
+    <tr class="light">
+      <td align="right">{$lang.template}:</td>
+      <td class="left">
+        <select name="template">
+        {section name=i loop=$template}
+          <option value="{$template[i].dir}"{if $template[i].dir == $template_dir} selected="selected"{/if}>{$template[i].name}</option>
+        {/section}
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="hidden" name="two" value="two" /><input type="submit" name="submit" value="{$lang.submit}" class="button" /></td>
+    </tr>
+  </table>
+
+</form>
+{elseif $step == '3'}
+<form action="{$_SERVER.PHP_SELF}" method="post" name="three">
+  <table border="0" cellspacing="1" cellpadding="4" class="list" name="table" id="table" align="center" width="100%">
+    <tr class="dark">
+      <td colspan="2"><b>{$lang.step3}</b></td>
+    </tr>
+    <tr class="medium">
+      <td colspan="2"><i><b>{$lang.upgrade_warning}</b></i></td>
+    </tr>
+    <tr class="medium">
+      <td align="right" width="50%">{$lang.install_upgrade}:</td>
+      <td class="left" width="50%">
+        <select name="install_upgrade">
+          <option value="install"{if $install_upgrade == 'install'} selected="selected"{/if}>{$lang.install}</option>
+          <!--<option value="upgrade"{if $install_upgrade == 'upgrade'} selected="selected"{/if}>{$lang.upgrade}</option>-->
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="hidden" name="three" value="three" /><input type="submit" name="submit" value="{$lang.submit}" class="button" /></td>
+    </tr>
+  </table>
+
+</form>
+{elseif $step == '4'}
+<form action="{$_SERVER.PHP_SELF}" method="post" name="four">
+  <table border="0" cellspacing="1" cellpadding="4" class="list" name="table" id="table" align="center" width="100%">
+    <tr class="dark">
+      <td colspan="2"><b>{$lang.step4}</b></td>
+    </tr>
+{if $install_upgrade == 'install'}
+    <tr class="tips">
+      <td colspan="2">{$lang.install_db}</td>
+    </tr>
+    <tr class="medium">
+      <td align="right" width="50%">{$lang.database}: </td>
+      <td class="left" width="50%">{$conf.database}</td>
+    </tr>
+    <tr class="medium">
+      <td align="right" width="50%">{$lang.prefix}: </td>
+      <td class="left" width="50%">{$conf.prefix}</td>
+    </tr>
+{elseif $install_upgrade == 'upgrade'}
+    <tr class="medium">
+      <td colspan="2">{$lang.upgrade_db}</td>
+    </tr>
+    <tr class="medium">
+      <td>{$lang.database}: </td>
+      <td>{$conf.database}</td>
+    </tr>
+{/if}
+    <tr>
+      <td colspan="2" align="center"><input type="hidden" name="four" value="four" /><input type="hidden" name="install_upgrade" value="{$install_upgrade}" /><input type="submit" name="submit" value="{$lang.submit}" class="button" /> <input type="submit" name="skip" value="{$lang.skip}" class="button" /></td>
+    </tr>
+  </table>
+
+</form>
+{elseif $step == '5'}
+<form action="{$_SERVER.PHP_SELF}" method="post" name="five">
+  <table border="0" cellspacing="1" cellpadding="4" class="list" name="table" id="table" align="center" width="100%">
+    <tr class="dark">
+      <td colspan="2"><b>{$lang.step5}</b></td>
+    </tr>
+    <tr class="tips">
+      <td colspan="2">{$lang.config_tips}</td>
+    </tr>  
+    <tr>
+      <td colspan="2" align="center"><input type="hidden" name="five" value="five" /><input type="submit" name="skip" value="{$lang.continue}" class="button" /></td>
+    </tr>
+  </table>
+
+</form>
+{elseif $step == '6'}
+<form action="{$_SERVER.PHP_SELF}" method="post" name="six">
+  <table border="0" cellspacing="1" cellpadding="4" class="list" name="table" id="table" align="center" width="100%">
+    <tr class="dark">
+      <td colspan="2"><b>{$lang.step6}</b></td>
+    </tr>
+    <tr class="tips">
+      <td colspan="2"><b>{$lang.setup_warning_login}</b></td>
+    </tr>
+    <tr class="medium">
+      <td colspan="2">{$lang.setup_complete}</td>
+    </tr>
+    <tr class="medium">
+      <td colspan="2">{$lang.now_login}</td>
+    </tr>
+    <tr class="light">
+      <td align="right" width="50%">{$lang.username}: </td>
+      <td class="left" width="50%">admin</td>
+    </tr>
+    <tr class="light">
+      <td align="right" width="50%">{$lang.password}: </td>
+      <td class="left" width="50%">admin</td>
+    </tr>
+    <tr class="medium">
+      <td colspan="2" align="center"><a href="{$conf.url}/admin/">{$conf.url}/admin/</a></td>
+    </tr>
+  </table>
+
+</form>
+{/if}
+</div>
+<div class="blank10"></div>
+</div>
+<div class="blank10"></div>
+<div class="copy">Copyright &copy; 2010 CmsEasy.CN, All rights reserved. <A href="http://www.cmseasy.cn" target=_blank>Powered&nbsp;by&nbsp;<STRONG><SPAN style="COLOR:#F93">CmsEasy</SPAN></STRONG></A></div>
+</div>
+</div>
+</body>
+</html>

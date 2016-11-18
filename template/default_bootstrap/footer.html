@@ -1,0 +1,183 @@
+<div class="clearfix"></div>
+<!--foot -->
+<footer>
+<div class="foot">
+<div class="container">
+
+
+<h5 class="col-lg-10">{getDescription($archive,$category,$catid,$type)}</h5>
+
+<div class="col-md-7 foot-nav">
+<div class="row">
+<div class="col-sm-4">
+{tag_页底栏目一}
+</div>
+<div class="col-sm-4">
+{tag_页底栏目二}
+</div>
+<div class="col-sm-4">
+{tag_页底栏目三}
+</div>
+</div>
+</div>
+
+<div class="col-md-5 fweixin">
+<div class="row">
+<div class="col-sm-6">
+{if config::get('qrcodes')=='1'}
+<p><img width="150" src="{url('tool/qrcode')}" /></p>
+<p>{lang(scanning)}{lang(access)}<br>{lang(sitewap)}</p>
+{/if}
+</div>
+<div class="col-sm-6">
+<p><img src="{get(weixin_pic)}" onerror='this.src="{config::get('onerror_pic')}"' /></p>
+<p>{lang(attention)}<br>{lang(official)}{lang(wechat)}</p>
+</div>
+</div>
+</div>
+
+
+
+
+<div class="copyright">
+<p>{lang(address)}：{get(address)}&nbsp;&nbsp;{lang(email)}：{get(email)}&nbsp;&nbsp;{lang(tel)}：{get(tel)}&nbsp;&nbsp;{lang(fax)}：{get(fax)}</p>
+<p>
+{get(site_right)}<a href="{get(site_url)}" target="_blank">{get(sitename)}</a>,Inc.All rights reserved.&nbsp;&nbsp;<a href="{$base_url}/sitemap.html" target="_blank">{lang(sitemap)}</a>&nbsp;&nbsp;<a rel="nofollow" href="http://www.miibeian.gov.cn/" rel="nofollow" target="_blank">{get('site_icp')}
+</p>
+<p>
+{getcnzzcount()}&nbsp;&nbsp;Powered by <a href="http://www.cmseasy.cn" title="CmsEasy企业网站系统" target="_blank">CmsEasy</a>{if get('guestbook_enable')}&nbsp;&nbsp;<a rel="nofollow" title="{lang(feedback)}" href="{url('guestbook')}" target="_blank">{lang('feedback')}</a>{/if}{if config::get('opguestadd')=='1'}&nbsp;&nbsp;<a rel="nofollow" href="{$base_url}/?g=1">{lang(opguestadd)}</a>{/if}</a>
+</p>
+{if config::get('hotsearch')=='1'}<p>{lang(hotkeys)}： {gethotsearch(10)}</p>{/if}
+</div>
+
+
+
+
+
+
+
+</div>
+</div>
+</footer>
+<!-- foot end -->{if $topid==0}
+<div class="home-links">
+<div class="hr"></div>
+<div class="container">
+<div class="col-xs-12 col-sm-12 col-md-2 col-lg-1 home-links-left">
+{lang(links)}：
+</div>
+<div class="col-xs-12 col-sm-12 col-md-10 col-lg-11">
+<div class="links-logo">
+{loop friendlink('image',0,24) $flink}
+<a href="{$flink[url]}" title="{$flink[name]}"><img src="{$flink[logo]}"width="88" height="31" /></a>
+{/loop}
+</div>
+<div class="links-a">
+{loop friendlink('text',0,24) $flink}
+<a href="{$flink[url]}" target="_blank">{$flink[name]}</a>/
+{/loop}
+
+</div>
+</div>
+</div><!-- /container -->
+</div><!-- /home-links -->
+{/if}
+
+
+<!-- search -->
+<div class="container-fluid">
+
+<div class="modal fade bs-example-modal-lg-search" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+
+<div class="row">
+<form name='search' action="<?php echo url('archive/search');?>" onsubmit="search_check();" method="post">
+<div class="col-lg-1"></div>
+<div class="col-lg-10">
+<div class="input-group">
+
+<input type="text" name="keyword" class="form-control" placeholder="{lang(pleaceinputtext)}">
+<span class="input-group-btn">
+<button class="btn btn-default" name='submit' type="submit">Go!</button>
+</span>
+
+</div>
+</div>
+<div class="col-lg-1"></div>
+</form>
+
+</div>
+</div>
+</div>
+
+</div>
+<!-- search end -->
+
+
+
+<div class="servers">
+<!--[if (gte IE 7)|!(IE)]><!-->
+<!-- 在线客服 -->
+{template 'system/servers.html'}
+<![endif]-->
+<!-- 短信 -->
+{template 'system/sms.html'}
+</div>
+
+<div class="servers-wap">
+{if config::get('wap_foot_nav')=='1'}
+{template 'system/foot_nav_b.html'}
+{elseif config::get('wap_foot_nav')=='2'}
+{template 'system/foot_nav_c.html'}
+{else}
+{template 'system/foot_nav_a.html'}
+{/if} 
+</div>
+
+<script type="text/javascript" src="{$base_url}/js/common.js"></script>
+
+
+
+
+
+
+
+{if get('share')=='1'}
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"100"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+{/if}
+
+
+{if config::get('site_push')=='1'}
+<script>
+(function(){
+var bp = document.createElement('script');
+bp.src = '//push.zhanzhang.baidu.com/push.js';
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(bp, s);
+})();
+</script>
+{/if}
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script src="{$skin_path}/js/bootstrap.min.js"></script>
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+<script src="{$skin_path}/js/holder.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="{$skin_path}/js/ie10-viewport-bug-workaround.js"></script>
+<script src="{$skin_path}/js/bootstrap-submenu.js"></script>
+<script src="{$skin_path}/js/docs.js"></script>
+<link rel="stylesheet" href="{$skin_path}/css/default.min.css" />
+<script src="{$skin_path}/js/highlight.min.js"></script>
+<link rel="stylesheet" href="{$skin_path}/js/wow/animate.min.css" />
+<script src="{$skin_path}/js/wow/wow.min.js"></script>
+<script>
+if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+	new WOW().init();
+};
+</script>
+</body>
+</html>

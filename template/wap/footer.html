@@ -1,0 +1,42 @@
+<div class="contact">
+	<div class="contact_title">
+		{lang(contactus)}
+	</div>
+	<dl>
+		<dt>{lang(zaixianfuwuzhichi)}</dt>
+		<dd>{lang(ruguoninywenti)}</dd>
+	</dl>
+	<ul>
+		<li class="li1">Addres:<br />{get(address)}</li>
+		<li class="li2">Phone:<br />{get(tel)}</li>
+		<li class="li3">Email:<br />{get(email)}</li>
+		{if config::get('site_login')=='1'}<li class="li4">Member:<br />{login_js()}{/if}</li>
+		<li class="li5">Powered by <a href="http://www.cmseasy.cn" title="CmsEasy企业网站系统" target="_blank">CmsEasy</a></li>
+	</ul>
+</div>
+<!--手机版尾部导航-->
+
+
+
+{if config::get('wap_foot_nav')=='1'}
+{template 'foot_nav_b.html'}
+{elseif config::get('wap_foot_nav')=='2'}
+{template 'foot_nav_c.html'}
+{else}
+{template 'foot_nav_a.html'}
+{/if} 
+
+<!--手机版尾部-->
+
+
+<script language='JavaScript'>
+//去掉虚线框
+function bluring(){
+if(event.srcElement.tagName=="A"||event.srcElement.tagName=="IMG") document.body.focus();
+}
+document.onfocusin=bluring;
+</script>
+
+
+</body>
+</html>

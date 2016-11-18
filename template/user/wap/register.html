@@ -1,0 +1,321 @@
+{template 'header.html'}
+<script type="text/javascript">
+<!--
+	/*
+ * jQuery placeholder, fix for IE6,7,8,9
+ * @author JENA
+ * @since 20131115.1504
+ * @website ishere.cn
+ */
+var JPlaceHolder = {
+    //检测
+    _check : function(){
+        return 'placeholder' in document.createElement('input');
+    },
+    //初始化
+    init : function(){
+        if(!this._check()){
+            this.fix();
+        }
+    },
+    //修复
+    fix : function(){
+        jQuery(':input[placeholder]').each(function(index, element) {
+            var self = $(this), txt = self.attr('placeholder');
+            self.wrap($('<div></div>').css({position:'relative', zoom:'1', border:'none', background:'none', padding:'none', margin:'none'}));
+            var pos = self.position(), h = self.outerHeight(true), paddingleft = self.css('padding-left');
+            var holder = $('<span></span>').text(txt).css({position:'absolute', left:pos.left, top:pos.top, height:h, lienHeight:h, paddingLeft:paddingleft, color:'#aaa'}).appendTo(self.parent());
+            self.focusin(function(e) {
+                holder.hide();
+            }).focusout(function(e) {
+                if(!self.val()){
+                    holder.show();
+                }
+            });
+            holder.click(function(e) {
+                holder.hide();
+                self.focus();
+            });
+        });
+    }
+};
+//执行
+jQuery(function(){
+    JPlaceHolder.init();    
+});
+//-->
+</script>
+<style type="text/css">/*定义标题*/
+
+
+.btn {
+float:left; 
+width:47%;
+line-height:28px;
+padding:5px 0px;
+color:#FFF;
+font-size:14px;
+border-radius: 3px 3px 3px 3px;
+overflow:hidden;
+	cursor:pointer;
+	background-color:#236298;
+	display:block;
+	text-align:center;-moz-box-shadow: 3px 3px 4px #DFDFDF;-webkit-box-shadow: 3px 3px 4px #DFDFDF;box-shadow: 3px 3px 4px #DFDFDF;
+}
+.btn:hover{ background-color:#FF4A00;}
+
+a.btn {color:white; }
+
+
+#checkcode {float:left;margin:10px 0px 0px 5px;}
+
+#verify {
+float:left;
+ width:255px;
+  height:30px;
+  line-height:30px;
+  margin:10px 0px;
+  padding:0px 15px;
+  border:1px solid #ccc;
+border-radius: 5px 0px 0px 5px;
+}
+#verify:hover {
+border:1px solid #A5C7FE;
+-moz-box-shadow:0px 0px 10px #A5C7FE;
+-webkit-box-shadow:0px 0px 10px #A5C7FE;
+box-shadow:0px 0px 10px #A5C7FE;
+
+}
+
+#username,
+select,
+#password,
+.input {
+  width:93%;
+  height:28px;
+  line-height:28px;
+  padding:0px 10px;
+  border:1px solid #ccc;
+  font-weight:bold;
+  font-size:12px;
+  border-radius: 3px 3px 3px 3px;
+}
+
+select {width:100%;}
+
+
+
+
+
+</style>
+<div class="blank10"></div>
+
+<!-- 页面标题开始 -->
+<div class="t_1 wow bounceIn">
+<div>
+<h3>{lang(user)}{lang(register)}</h3>
+<p>User Register</p>
+</div>
+</div>
+
+<div class="p10">
+	 <script type="text/javascript" LANGUAGE="javascript">
+            <!--
+
+           function check()
+            {
+                if(document.login_form.username.value.length==0){
+                    alert("{lang(please_enter_your_user_name)}");
+                    document.login_form.username.focus();
+                    return false;
+                }
+
+                if(document.login_form.password.value.length==0){
+                    alert("{lang(please_set_a_password)}");
+                    document.login_form.password.focus();
+                    return false;
+                }
+
+                if(document.login_form.password2.value.length==0){
+                    alert("{lang(enter_confirm_password)}");
+                    document.login_form.password2.focus();
+                    return false;
+                }
+
+				
+
+                if(document.login_form.aquestion.value.length==0){
+                    alert("{lang(set_security)}");
+                    document.login_form.aquestion.focus();
+                    return false;
+                }
+
+                if(document.login_form.question.value.length==0){
+                    alert("{lang(please_set_the_security_answer)}");
+                    document.login_form.question.focus();
+                    return false;
+                }
+
+                if(document.login_form.answer.value.length==0){
+                    alert("{lang(please_enter_the_custom_security_answer)}");
+                    document.login_form.answer.focus();
+                    return false;
+                }
+                if(document.login_form.verify.value.length==0){
+                    alert("{lang(enter)}{lang(verifycode)}!");
+                    document.login_form.verify.focus();
+                    return false;
+                }
+
+             if(document.login_form.tel.value.length==0){
+                    alert("{lang(p_m_content)}");
+                    document.login_form.tel.focus();
+                    return false;
+                }
+
+
+            function set_question(value)
+            {
+                document.getElementById("question").value=value;
+                document.getElementById("question").focus();
+            }
+            //-->
+
+
+
+			return true; 
+} 
+
+function checkEmail(e_mail)
+{
+ //对电子邮件的验证
+  var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+  if(!myreg.test(e_mail))
+  {
+   alert('{lang(tipsinfo)}\n\n{lang(mailbox_format_is_not)}！');
+    myreg.focus();
+    return false;
+  }
+}
+function isMobile(mobile){
+	return /^1([0-9]+){5,}$/g.test(mobile);
+}
+        </script>
+
+
+    
+<form id="login_form"   name="login_form" method="post"  action="<?php echo url('user/register') ?>" onsubmit="return check()">
+              
+<strong style="font-size:14px;color:red;">{message()}</strong>
+
+ {if config::get(reg_on)}                 
+<input placeholder="{lang(username)}" name="username" type="text" id="username" value="{get('username')}" tabindex="1"  class="input" />
+<div class="blank10"></div>							
+<input placeholder="{lang(password)}" name="password" type="password" id="password" value="<?php //echo $password;?>" tabindex="2" class="input" />
+<div class="blank10"></div>
+<input placeholder="{lang(againpassword)}" type='password' id="password2"  name="password2" value="<?php //echo $password;?>" tabindex="3" class="input" />
+<div class="blank10"></div>                  
+{if config::get('invitation_registration')=='1'}
+<input placeholder="{lang(invitation-code)}" type='text' id="invite" name="invite" value="" tabindex="4"  class="input" />
+<div class="blank10"></div>
+{/if}
+        <select name="" onchange="set_question(this.value);">
+            <option value="{lang(select_security)}">{lang(question)}</option>
+            <option value="{lang(father_was_born)}">{lang(father_was_born)}</option>
+            <option value="{lang(mother_was_born)}">{lang(mother_was_born)}</option>
+            <option value="{lang(elementary_school_name)}">{lang(elementary_school_name)}</option>
+            <option value="{lang(name_in_the_school)}">{lang(name_in_the_school)}</option>
+            <option value="{lang(favorite_sport)}">{lang(favorite_sport)}</option>
+            <option value="{lang(favorite_songs)}">{lang(favorite_songs)}</option>
+            <option value="{lang(favorite_movies)}">{lang(favorite_movies)}</option>
+            <option value="{lang(favorite_color)}" >{lang(favorite_color)}</option>
+            <option value="{lang(custom_questions)}" >{lang(custom_questions)}</option>
+        </select>
+<div class="blank10"></div>
+<div style="display:none;">
+<input placeholder="{lang(question)" type='text' id="question"  name="question" value="" tabindex="5" class="input" />
+<div class="blank10"></div>
+</div>
+
+<input placeholder="{lang(answer)}" type='text' id="answer"  name="answer" value="" tabindex="6" class="input" />
+<div class="blank10"></div>
+<input placeholder="{lang(e_mail)}" type='text' id="e_mail"  name="e_mail" value="" tabindex="7" class="input" />
+<div class="blank10"></div>
+					
+<input placeholder="{lang(tel)}" type='text' id="tel"  name="tel" value="" tabindex="6"  class="input" />
+<div class="blank10"></div>
+<input placeholder="{lang(address)}" type='text' id="address"  name="address" value="" tabindex="7"  class="input" />
+<div class="blank10"></div>
+{loop $field $f}
+<?php
+$name=$f['name'];
+if(!preg_match('/^my_/',$name)) {
+unset($field[$name]);
+continue;
+}
+if(!setting::$var['user'][$name]['showinreg']) {
+continue;
+}
+?>
+<?php echo setting::$var['user'][$name]['cname']; ?>
+<div class="blank10"></div>
+<?php echo form::getform($name,setting::$var['user'],$field,array()); ?>
+<div class="blank10"></div>
+{/loop}
+
+{if config::get('mobilechk_enable') && config::get('mobilechk_login')}
+<script src="{$base_url}/js/mobilechk.js"></script>
+<div class="blank10"></div>
+<input type='text' id="mobilenum"  tabindex="3" placeholder="{lang(send_cell_phone_verification_code)}"  name="mobilenum" />&nbsp;<input id="btm_sendMobileCode" onclick="sendMobileCode($('#tel').val());" type="button" value="{lang(phone_verification_code)}" />
+{/if}
+
+{if config::get('verifycode')=='1'}
+<input type='text' id="verify"  tabindex="3"  name="verify" />{verify()}
+<div class="blank10"></div>
+{/if}
+{if config::get('verifycode')=='2'} 
+<div class="blank20"></div>
+<div id="verifycode_embed"></div>
+<script src="http://api.geetest.com/get.php"></script>
+<script>
+var loadGeetest = function(config) {
+	window.gt_captcha_obj = new window.Geetest({
+		gt : config.gt,
+		challenge : config.challenge,
+		product : 'float',
+		offline : !config.success
+	});
+	gt_captcha_obj.appendTo("#verifycode_embed");
+};
+
+$.ajax({
+	url : '{url('tool/geetest',0)}',
+	type : "get",
+	dataType : 'JSON',
+	success : function(result) {
+		//console.log(result);
+		loadGeetest(result)
+	}
+});
+</script>
+<div class="blank10"></div>
+{/if}
+
+                   
+
+<input type="submit" name="submit" value=" {lang(register)} "  class="register_btn"   />
+<div class="blank20"></div>
+<a href="{url('user/getpass')}" class="btn" style="margin-right:18px;">{lang(findpassword)}</a>
+<a href="<?php echo url('user/login');?>" class="btn">{lang(login)}</a>
+        
+{else}
+{lang(tips)}：<span style="color:red;">{lang(sitecloseregister)}</span>
+                                       
+{/if}
+
+</form>
+
+
+<div class="blank30"></div>
+</div>
+{template 'footer.html'}
